@@ -2,6 +2,13 @@
 
 Breezely is a framework-free weather web application built with HTML, CSS, and JavaScript. It combines current weather conditions, forecasts, air-quality information, location search, saved locations, recent searches, configurable units, and weather-aware theming in a responsive browser-based interface.
 
+## Preview
+
+![Breezely Preview](<img width="1350" height="722" alt="Breezely demo screenshot" src="https://github.com/user-attachments/assets/33eb7c69-1563-44eb-9a54-53e411692802" />
+)
+
+# Breezely — Weather App
+
 ## Project Status
 
 | | |
