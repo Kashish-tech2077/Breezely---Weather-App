@@ -1,0 +1,137 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+
+/* ==========================================================================
+   2. GLOBAL RESETS & BASE STYLES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: var(--font-size-root);
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-base);
+    background-color: var(--color-surface-page);
+    color: var(--color-text-default);
+    position: relative;
+}
+
+/* -------------------- utility classes --------------- */
+
+.layout-container {
+    width: var(--layout-width);
+    margin: 40px auto;
+    padding: 25px;
+    border: 2px solid var(--color-border-strong);
+    border-radius: var(--radius-lg);
+    position: relative;
+}
+
+body,
+.site-header,
+.layout-container,
+.model-card,
+.current-weather,
+.footer {
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.layout-header {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    font-size: 1.15rem;
+    padding: 10px 5px;
+}
+
+.layout-heading-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.layout-tagline {
+    color: var(--color-text-brand-muted);
+    font-size: 0.98rem;
+}
+
+.logo-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.breezely-logo {
+    width: 80px;
+}
+
+.breezely-name {
+    font-size: 1.75rem;
+}
+
+#scroll-top-btn {
+    position: fixed;
+    opacity: 0;
+    visibility: hidden;
+    bottom: 50px;
+    right: 30px;
+    font-size: 3.0rem;
+    cursor: pointer;
+    background-color: var(--theme-accent);
+    color: var(--theme-on-accent);
+    border: 2px solid var(--theme-border);
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, box-shadow 0.15s ease-in-out, transform 0.15s ease-in-out;
+    border-radius: 50%;
+    z-index: 50;
+
+}
+
+#scroll-top-btn:hover {
+    box-shadow: 0px 0px 10px 3px var(--color-sun);
+    transform: scale(1.25);
+}
+
+#scroll-top-btn:active {
+    transform: scale(0.95);
+}
+
+#scroll-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.recent-search__message,
+.manage-locations__message {
+    font-weight: 700;
+    text-align: center;
+    background-color: var(--color-surface-message);
+    padding: 12px;
+    border-radius: 8px;
+    width: 100%;
+    line-height: 1.55;
+}
+
+
+/* Levels of AQI  */
+
+.good-level-aqi {
+    background-color: var(--color-status-good) !important;
+}
+
+.moderate-level-aqi {
+    background-color: var(--color-status-moderate);
+    color: var(--color-status-moderate-text);
+}
+
+.high-level-aqi {
+    background-color: var(--color-status-high);
+    color: var(--color-white);
+}

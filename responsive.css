@@ -1,0 +1,698 @@
+/* --------------------------- Large desktop responsive code ------------------------*/
+
+@media (min-width: 2000px) {
+
+    /* ----- root html ----- */
+    html {
+        font-size: 17px;
+    }
+
+
+    /* ----- utility classes ----- */
+    .layout-container {
+        max-width: 70vw;
+    }
+
+    .layout-container,
+    .aqi-forecast,
+    .days-forecast,
+    .hourly-forecast {
+        width: 100%;
+    }
+
+
+    /* ----- header ----- */
+    .site-header {
+        margin: auto;
+    }
+
+
+    /* ----- current-weather ----- */
+    .current-weather {
+        grid-template-columns: 1.5fr 1fr;
+        padding: 30px;
+    }
+
+    .current-weather__metric-box {
+        width: 100%;
+    }
+
+
+    /* ----- aqi-forecast ----- */
+    .aqi-forecast__mobile {
+        display: none;
+    }
+
+
+    /* ----- footer ----- */
+    .footer {
+        max-width: 70vw;
+        margin: auto;
+    }
+
+}
+
+
+/* --------------------------- Medium desktop/laptop responsive code ------------------------*/
+
+@media (min-width:1600px) and (max-width:1999px) {
+
+    /* ----- root html ----- */
+    html {
+        font-size: 16px;
+    }
+
+
+    /* ----- utility classes ----- */
+    .layout-container {
+        max-width: 80vw;
+    }
+
+
+    /* ----- current-weather ----- */
+    .current-weather__metric-box {
+        width: 90%;
+    }
+
+    .current-weather__sun-box {
+        margin: 5px auto;
+    }
+
+
+    /* ----- aqi-forecast ----- */
+    .aqi-forecast__mobile {
+        display: none;
+    }
+
+}
+
+/* --------------------------- Small desktop/laptop responsive code --------------------------- */
+
+@media (max-width:1300px) {
+
+    /* ----- utility classes ----- */
+    .layout-panel {
+        padding: 15px 10px;
+    }
+
+
+    /* ----- current-weather ----- */
+    .current-weather {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .current-weather__metrics {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-rows: 1fr;
+        grid-gap: 25px;
+        justify-content: center;
+        font-size: 1.60rem;
+        margin-top: 30px;
+    }
+
+    .current-weather__metric-box {
+        width: 100%;
+        justify-content: center;
+        gap: 5%;
+        padding: 20px 5px;
+    }
+
+    .current-weather__metric-value {
+        font-size: 1.8rem;
+    }
+
+    .current-weather__metric-status {
+        font-size: 1.5rem;
+    }
+
+    .current-weather__metric-icon {
+        font-size: 3.0rem;
+    }
+
+    .current-weather__sun-box {
+        grid-column: span 2;
+    }
+
+    /* ----- aqi-forecast ----- */
+    .aqi-forecast__table td {
+        padding: 15px;
+    }
+
+    .aqi-forecast__table tbody tr td:nth-child(4) {
+        padding: 2px;
+    }
+
+    .aqi-forecast__status--unhealthy-sensitive {
+        max-width: 80%;
+    }
+
+    .aqi-forecast__mobile {
+        display: none;
+    }
+
+
+    /* ----- recent-search ----- */
+    .recent-search__container {
+        display: block;
+    }
+
+    .recent-search__box {
+        margin: 20px auto;
+    }
+
+
+    /* ----- footer ----- */
+    .footer__content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .footer__box {
+        width: 40%;
+        margin-bottom: 25px;
+    }
+
+    .footer-about-text {
+        width: 80%;
+    }
+
+    .footer__separator {
+        display: none;
+    }
+
+    .footer__conclusion {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+}
+
+/* --------------------------- Tablet responsive code --------------------------- */
+
+@media (max-width:900px) {
+
+    /* ----- root html ----- */
+    html {
+        font-size: 15px;
+    }
+
+
+    /* ----- header ----- */
+    .hamburger-group,
+    .hamburger-icon {
+        display: block;
+    }
+
+    .site-header .site-header__search,
+    .site-header__actions {
+        display: none;
+    }
+
+
+    /* ----- current-weather ----- */
+    .current-weather__metrics {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+
+    /* ----- hourly-forecast ----- */
+    .hourly-forecast__header {
+        padding: 12px 25px !important;
+    }
+
+    .hourly-forecast__table th,
+    .hourly-forecast__table td {
+        padding: 20px 30px;
+    }
+
+    /* ----- aqi-forecast ----- */
+    .aqi-forecast__table {
+        display: none;
+    }
+
+    .aqi-forecast__mobile {
+        display: block;
+        margin: 15px auto;
+    }
+
+    .aqi-forecast__mobile-row {
+        border: 2px solid black;
+        margin: 15px auto;
+        padding: 18px;
+        border-radius: 18px;
+        background-color: #faf4f4;
+    }
+
+    .aqi-forecast__mobile-aqi-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .aqi-forecast__mobile-aqi-heading {
+        font-size: 1.7rem;
+        font-weight: 400;
+    }
+
+    .aqi-forecast__mobile-aqi {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .aqi-forecast__mobile-aqi-value {
+        font-size: 4rem;
+        font-weight: 800;
+    }
+
+    .aqi-forecast__mobile-aqi-status {
+        font-size: 1.2rem;
+        text-align: right;
+        font-weight: 500;
+    }
+
+    .aqi-forecast__status--unhealthy-sensitive {
+        max-width: 60%;
+        margin: 0px;
+        text-align: center;
+    }
+
+    .aqi-forecast__mobile-row-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .aqi-forecast__mobile-row-title {
+        font-size: 1.7rem;
+    }
+
+    .aqi-forecast__mobile-row-status {
+        border: 1px solid black;
+        padding: 10px 15px;
+        border-radius: 15px;
+        font-size: 1.20rem;
+    }
+
+    .aqi-forecast__mobile-row-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+    }
+
+    .aqi-forecast__mobile-particle-desc {
+        font-size: 1.50rem;
+    }
+
+    .aqi-forecast__mobile-reading {
+        padding: 10px 30px;
+        text-align: center;
+    }
+
+    .aqi-forecast__mobile-reading-value {
+        font-size: 2.0rem;
+        margin-bottom: 8px;
+    }
+
+    .aqi-forecast__mobile-unit {
+        font-size: 1.40rem;
+    }
+
+
+    /* ----- recent-search ----- */
+    .recent-search__header {
+        flex-wrap: wrap;
+    }
+
+    .recent-search__actions {
+        width: 100%;
+        text-align: center;
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+
+
+    /* ------------------- footer-styling ------------------ */
+    .footer__content {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer__logo {
+        justify-content: center;
+    }
+
+    .footer__box {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .footer__box--link {
+        justify-content: space-evenly;
+    }
+
+    .footer__theme-btn {
+        max-width: 50% !important;
+    }
+
+    .footer__theme-tagline {
+        width: auto;
+    }
+
+    .footer-about-text {
+        width: 100%;
+    }
+
+    .footer__separator {
+        display: block;
+    }
+
+    /* settings and locations */
+
+    .settings__item {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .settings__info {
+        align-items: center;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .settings__heading {
+        margin-bottom: 5px;
+    }
+
+    .manage-locations__footer {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+
+}
+
+/* --------------------------- Mobile responsive code --------------------------- */
+
+@media (max-width:500px) {
+
+    /* ----- root html ----- */
+    html {
+        font-size: 14px;
+    }
+
+    :root {
+        --header-height: 75px;
+    }
+
+
+    /* ----- utility classes ----- */
+    .layout-container {
+        width: 96% !important;
+    }
+
+    .layout-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .generic-icons__current-weather--metric {
+        width: 3.0rem;
+    }
+
+    /* ----- header ----- */
+    .site-header {
+        padding: 10px;
+    }
+
+    .breezely-logo {
+        width: 65px;
+    }
+
+    .hamburger-icon {
+        font-size: 2.55rem;
+    }
+
+    .site_header__search-result-box--mobile {
+        padding: 5px;
+    }
+
+    .site_header__search-result-area-part {
+        padding-top: 2px;
+    }
+
+    .site_header__search-result-content {
+        line-height: 1.5;
+        max-width: 80%;
+    }
+
+    .site_header__search-result-row {
+        padding: 6px;
+    }
+
+
+    /* ----- current-weather ----- */
+    .current-weather {
+        width: 100% !important;
+    }
+
+    .current-weather__temperature {
+        align-items: center;
+        gap: 10px;
+    }
+
+    .current-weather__temperature-value {
+        font-size: 5rem;
+    }
+
+    .current-weather__weather-icon {
+        width: 104px;
+        height: 104px;
+    }
+
+    .current-weather__location {
+        font-size: 1.10rem;
+        gap: 4px;
+    }
+
+    .current-weather__location-icon {
+        margin-right: 5px;
+    }
+
+    .aqi-forecast__status--unhealthy-sensitive {
+        max-width: 50%;
+    }
+
+    .current-weather__metrics {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .current-weather__metric-box {
+        justify-content: space-evenly;
+    }
+
+    .current-weather__arc-box {
+        height: 90px;
+    }
+
+    .current-weather__sun-box {
+        padding: 30px 8px;
+    }
+
+    .current-weather__sun-time-value {
+        font-size: 1.15rem;
+    }
+
+
+    /* ----- hourly-forecast ----- */
+
+    .hourly-forecast__header {
+        margin-bottom: 10px;
+    }
+
+    .hourly-forecast__table th,
+    .hourly-forecast__table td {
+        padding: 12px 15px;
+    }
+
+    .hourly-forecast__table {
+        margin: 0px auto;
+    }
+
+
+    /* ----- day-forecast ----- */
+    .days-forecast {
+        padding: 20px 10px;
+        margin: 25px auto;
+    }
+
+    .days-forecast__container {
+        margin: 10px auto;
+    }
+
+    .days-forecast__box {
+        max-width: 250px;
+        padding: 30px 10px;
+    }
+
+
+    /* ----- aqi-forecast ----- */
+    .aqi-forecast {
+        padding: 25px 10px;
+    }
+
+    .aqi-forecast__aqi {
+        display: none;
+    }
+
+    .aqi-forecast__table {
+        display: none;
+    }
+
+    .aqi-forecast__mobile-aqi-value {
+        font-size: 3rem;
+    }
+
+    .aqi-forecast__mobile-row {
+        padding: 16px 12px;
+    }
+
+    .aqi-forecast__mobile-row-content {
+        flex-direction: column;
+    }
+
+    .aqi-forecast__mobile-particle-desc {
+        font-size: 1.30rem;
+        background-color: #dbdddf;
+        text-align: center;
+        margin: 0;
+        margin-left: -10px;
+        margin-right: -10px;
+        padding: 5px 25px;
+    }
+
+    .aqi-forecast__mobile-reading {
+        margin: 15px 0px;
+        align-items: center;
+    }
+
+    .aqi-forecast__mobile-aqi-heading {
+        font-size: 1.5rem;
+    }
+
+    .aqi-forecast__mobile-aqi-header {
+        margin-bottom: 20px;
+    }
+
+    .aqi-guide__number {
+        font-size: 1.8rem;
+    }
+
+    .aqi-forecast__mobile-unit {
+        font-size: 1.5rem;
+    }
+
+
+    /* ----- recent-search ----- */
+    .recent-search {
+        padding: 18px 10px;
+    }
+
+    .clear-recent-search-btn {
+        margin-top: 18px;
+    }
+
+
+    /* ----- footer ----- */
+    .footer {
+        width: 100% !important;
+        margin: 0px;
+        border-radius: 0px;
+    }
+
+    .footer__box--link {
+        flex-direction: column;
+    }
+
+    .footer__theme-btn {
+        max-width: 80% !important;
+    }
+
+    /* ------------ settings and location models --------------- */
+    .model-card__header {
+        gap: 15px;
+    }
+
+    .model-card__heading {
+        width: 65%;
+    }
+
+    .model-card__tagline {
+        font-size: 0.80rem;
+    }
+
+    .model-card__heading-text {
+        font-size: 1.10rem;
+    }
+
+    #settings {
+        padding: 25px 5px;
+    }
+
+    .settings__list {
+        margin-top: 0px;
+    }
+
+    .settings__radio {
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .settings__item {
+        margin-top: 10px;
+    }
+
+    .settings__options--theme {
+        flex-direction: column;
+    }
+
+    .settings__footer {
+        margin: 12px;
+    }
+
+    #location {
+        padding: 10px;
+    }
+
+    .manage-locations__weather-icon {
+        font-size: 1.8rem;
+    }
+
+    .manage-locations__place-info {
+        gap: 0px;
+    }
+
+    /* confirmation popup */
+    .confirmation-popup__heading {
+        margin: 15px auto;
+        font-size: 2rem;
+    }
+
+    .confirmation-popup__detail {
+        font-size: 1.2rem;
+    }
+
+}

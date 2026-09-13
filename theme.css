@@ -1,0 +1,689 @@
+/* -------------------- weather theme surface layer -------------------- */
+
+:root {
+    --header-height: 96px;
+    --theme-page: #eaf4ff;
+    --theme-surface: #fffafa;
+    --theme-text: #111827;
+    --theme-muted: #455486;
+    --theme-accent: #258fe4;
+    --theme-hero-start: #b8c9c1;
+    --theme-hero-end: #f2d5ad;
+    --theme-shadow: rgba(32, 96, 156, 0.2);
+    --theme-card: #ffffff;
+    --theme-card-muted: #eef6ff;
+    --theme-border: #b7c7d8;
+    --theme-input: #ffffff;
+    --theme-hover: #e4f0fc;
+    --theme-heading: #102a43;
+    --theme-on-accent: #ffffff;
+    --theme-sun-start: #65566d;
+    --theme-sun-end: #f1d7ae;
+    color-scheme: light;
+}
+
+body[data-theme-mode="dark"] {
+    --theme-page: #0d1728;
+    --theme-surface: #17263b;
+    --theme-text: #edf5ff;
+    --theme-muted: #b6c8df;
+    --theme-shadow: rgba(0, 0, 0, 0.35);
+    --theme-card: #17263b;
+    --theme-card-muted: #213650;
+    --theme-border: #55708e;
+    --theme-input: #102035;
+    --theme-hover: #294564;
+    --theme-heading: #f4f8ff;
+    --theme-on-accent: #ffffff;
+    --theme-sun-start: #61458a;
+    --theme-sun-end: #263b58;
+    color-scheme: dark;
+}
+
+body[data-weather-theme="sunny"] {
+    --theme-accent: #356b8f;
+    --theme-hero-start: #4f83a6;
+    --theme-hero-end: #d5e7e8;
+    --theme-sun-start: #65566d;
+    --theme-sun-end: #f1d7ae;
+}
+
+body[data-weather-theme="cloudy"] {
+    --theme-accent: #5e7483;
+    --theme-hero-start: #607987;
+    --theme-hero-end: #c1cdd1;
+    --theme-sun-start: #718793;
+    --theme-sun-end: #e2e8e8;
+}
+
+body[data-weather-theme="rain"] {
+    --theme-accent: #376d83;
+    --theme-hero-start: #2e586e;
+    --theme-hero-end: #78a6b7;
+    --theme-sun-start: #466f7c;
+    --theme-sun-end: #c1d8dc;
+}
+
+body[data-weather-theme="snow"] {
+    --theme-accent: #5d91a8;
+    --theme-hero-start: #8ebfd2;
+    --theme-hero-end: #edf5f6;
+    --theme-sun-start: #8dbccc;
+    --theme-sun-end: #f1f8f7;
+}
+
+body[data-weather-theme="atmosphere"] {
+    --theme-accent: #766d68;
+    --theme-hero-start: #817d78;
+    --theme-hero-end: #d5d0c8;
+    --theme-sun-start: #8f8176;
+    --theme-sun-end: #eee4d6;
+}
+
+body[data-weather-theme="thunder"] {
+    --theme-accent: #735582;
+    --theme-hero-start: #332d52;
+    --theme-hero-end: #76658d;
+    --theme-sun-start: #51456d;
+    --theme-sun-end: #c49d79;
+}
+
+body[data-theme-mode="dark"] {
+    --theme-hero-start: #263b4a;
+    --theme-hero-end: #526b78;
+    --theme-sun-start: #435765;
+    --theme-sun-end: #a88d6d;
+}
+
+body[data-theme-mode="dark"][data-weather-theme="sunny"] {
+    --theme-hero-start: #674a2d;
+    --theme-hero-end: #b27c45;
+    --theme-sun-start: #76552d;
+    --theme-sun-end: #d9b46d;
+}
+
+body[data-theme-mode="dark"][data-weather-theme="cloudy"] {
+    --theme-hero-start: #2f414c;
+    --theme-hero-end: #596b73;
+    --theme-sun-start: #435765;
+    --theme-sun-end: #a1a79e;
+}
+
+body[data-theme-mode="dark"][data-weather-theme="rain"] {
+    --theme-hero-start: #1f3948;
+    --theme-hero-end: #416b7a;
+    --theme-sun-start: #2d5361;
+    --theme-sun-end: #7fa8ad;
+}
+
+body[data-theme-mode="dark"][data-weather-theme="snow"] {
+    --theme-hero-start: #37586a;
+    --theme-hero-end: #7293a0;
+    --theme-sun-start: #4d7480;
+    --theme-sun-end: #a9c4c4;
+}
+
+body[data-theme-mode="dark"][data-weather-theme="atmosphere"] {
+    --theme-hero-start: #4e4b49;
+    --theme-hero-end: #77736c;
+    --theme-sun-start: #5c514a;
+    --theme-sun-end: #aa9278;
+}
+
+body[data-theme-mode="dark"][data-weather-theme="thunder"] {
+    --theme-hero-start: #2d2946;
+    --theme-hero-end: #5c496d;
+    --theme-sun-start: #40365b;
+    --theme-sun-end: #9b765f;
+}
+
+/* Light thunder hero uses a dark background */
+body[data-theme-mode="light"][data-weather-theme="thunder"] .current-weather__content {
+    color: #ffffff;
+}
+
+/* Keep text dark inside light-colored UI elements */
+body[data-theme-mode="light"][data-weather-theme="thunder"] .current-weather__temp-range-value,
+body[data-theme-mode="light"][data-weather-theme="thunder"] .current-weather__update-time {
+    color: #071a31;
+}
+
+/* Make the location icon visible against the dark thunder background */
+body[data-theme-mode="light"][data-weather-theme="thunder"] .generic-icons__current-weather--location {
+    filter: invert(1);
+}
+
+body,
+.site-header,
+.layout-container,
+.model-card,
+.current-weather,
+.footer {
+    transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.site-header {
+    background-color: var(--theme-surface);
+    color: var(--theme-text);
+}
+
+.main-container {
+    background-color: var(--theme-page);
+}
+
+.layout-container {
+    background-color: var(--theme-page);
+    color: var(--theme-text);
+}
+
+.current-weather {
+    background: linear-gradient(135deg, var(--theme-hero-start), var(--theme-hero-end));
+    box-shadow: 0 12px 30px var(--theme-shadow);
+}
+
+/* make the icons (which is images) to convert white in dark background using filter */
+body[data-theme-mode="dark"] .generic-icons__header,
+body[data-theme-mode="dark"] .generic-icons,
+body[data-theme-mode="dark"] .site-header__search-icon,
+body[data-theme-mode="dark"] .site_header__search-result-icon,
+body[data-theme-mode="dark"] .site-header__save-icon {
+    filter: invert(1);
+}
+
+body[data-theme-mode="dark"] .site-header__actions .site-header__btn {
+    color: var(--theme-text);
+}
+
+body[data-theme-mode="dark"] .site-header__search,
+body[data-theme-mode="dark"] .site-header__search:hover,
+body[data-theme-mode="dark"] .site_header__search-result-box,
+body[data-theme-mode="dark"] .site_header__search-result-box--mobile,
+body[data-theme-mode="dark"] .site_header__search-result-box--location {
+    background-color: var(--theme-input) !important;
+    border-color: var(--theme-border);
+    color: var(--theme-text);
+}
+
+body[data-theme-mode="dark"] .site-header__search-bar,
+body[data-theme-mode="dark"] .site-header__search-bar::placeholder {
+    color: var(--theme-text);
+}
+
+body[data-theme-mode="dark"] .site-header__search-bar::placeholder {
+    color: var(--theme-muted);
+}
+
+body[data-theme-mode="dark"] .site_header__search-result-city,
+body[data-theme-mode="dark"] .site_header__search-result-state,
+body[data-theme-mode="dark"] .site_header__search-result-country,
+body[data-theme-mode="dark"] .site_header__search-result-area-part,
+body[data-theme-mode="dark"] .site_header__search-result-icon,
+body[data-theme-mode="dark"] .site-header__save-icon {
+    color: #ffffff !important;
+    filter: none !important;
+}
+
+body[data-theme-mode="dark"] .site_header__search-result-row:hover {
+    background-color: var(--theme-hover);
+}
+
+body[data-theme-mode="dark"] .search-status-message {
+    color: #edf5ff;
+}
+
+body[data-theme-mode="dark"] .search-text-clear-btn {
+    background-color: var(--theme-card-muted);
+    color: var(--theme-text);
+}
+
+body[data-theme-mode="dark"] .recent-search__clear-btn:hover {
+    background-color: var(--theme-hover);
+    color: var(--theme-text);
+    border-color: var(--theme-border);
+}
+
+body[data-theme-mode="dark"] .confirmation-popup__button:hover {
+    background-color: var(--theme-hover);
+    color: var(--theme-text);
+    border-color: var(--theme-border);
+}
+
+body[data-theme-mode="dark"] .generic-icons__close:hover {
+    filter: invert(0) !important;
+    background-color: #efeff1 !important;
+}
+
+body[data-weather-theme] {
+    color: var(--theme-text);
+}
+
+body[data-weather-theme] .layout-container:not(.current-weather),
+body[data-weather-theme] .hourly-forecast,
+body[data-weather-theme] .days-forecast,
+body[data-weather-theme] .aqi-forecast,
+body[data-weather-theme] .recent-search,
+body[data-weather-theme] .model-card,
+body[data-weather-theme] .confirmation-popup {
+    background-color: var(--theme-card) !important;
+    color: var(--theme-text);
+    border-color: var(--theme-border);
+}
+
+body[data-weather-theme] .layout-header,
+body[data-weather-theme] .layout-heading-group,
+body[data-weather-theme] .layout-tagline,
+body[data-weather-theme] .model-header-tagline,
+body[data-weather-theme] .model-info-text,
+body[data-weather-theme] .settings__tagline,
+body[data-weather-theme] .settings__label-description,
+body[data-weather-theme] .recent-search__country,
+body[data-weather-theme] .hourly-forecast__tagline,
+body[data-weather-theme] .days-forecast__tagline {
+    color: var(--theme-muted);
+}
+
+body[data-weather-theme] .current-weather__metric-box,
+body[data-weather-theme] .recent-search__box,
+body[data-weather-theme] .days-forecast__box,
+body[data-weather-theme] .aqi-forecast__mobile-row,
+body[data-weather-theme] .aqi-forecast__guide,
+body[data-weather-theme] .settings__item,
+body[data-weather-theme] .manage-locations__item,
+body[data-weather-theme] .manage-locations__item--saved {
+    background-color: var(--theme-card-muted) !important;
+    color: var(--theme-text);
+    border-color: var(--theme-border);
+}
+
+body[data-weather-theme] .hourly-forecast__table,
+body[data-weather-theme] .hourly-forecast__table th,
+body[data-weather-theme] .hourly-forecast__table td,
+body[data-weather-theme] .aqi-forecast__table,
+body[data-weather-theme] .aqi-forecast__table th,
+body[data-weather-theme] .aqi-forecast__table td {
+    border-color: var(--theme-border);
+    color: var(--theme-text);
+}
+
+body[data-weather-theme] input,
+body[data-weather-theme] select,
+body[data-weather-theme] textarea,
+body[data-weather-theme] .site-header__search,
+body[data-weather-theme] .manage-locations__search-input {
+    background-color: var(--theme-input);
+    color: var(--theme-text);
+    border-color: var(--theme-border);
+}
+
+body[data-weather-theme] input::placeholder {
+    color: var(--theme-muted);
+}
+
+body[data-weather-theme] button,
+body[data-weather-theme] .settings__radio,
+body[data-weather-theme] .settings__close-button,
+body[data-weather-theme] .confirmation-popup__button {
+    color: var(--theme-text);
+    border-color: var(--theme-border);
+}
+
+body[data-weather-theme] .site-header__btn:hover,
+body[data-weather-theme] .settings__radio:hover,
+body[data-weather-theme] .settings__radio:has(.settings__input:checked),
+body[data-weather-theme] .manage-locations__item:hover,
+body[data-weather-theme] .recent-search__box:hover {
+    background-color: var(--theme-hover);
+}
+
+body[data-weather-theme] .settings__radio:has(.settings__input:checked) {
+    border-color: var(--theme-accent);
+}
+
+body[data-weather-theme] .settings__radio:has(.settings__input:checked) .settings__label,
+body[data-weather-theme] .settings__radio:has(.settings__input:checked) .settings__label-description {
+    color: var(--theme-accent);
+}
+
+body[data-weather-theme] #settings,
+body[data-weather-theme] #location,
+body[data-weather-theme] .mobile-site-header,
+body[data-weather-theme] .mobile-site-header__navbar,
+body[data-weather-theme] .mobile-site-header__content {
+    background-color: var(--theme-card) !important;
+    color: var(--theme-text);
+}
+
+body[data-weather-theme] .model-card__header,
+body[data-weather-theme] .settings__footer,
+body[data-weather-theme] .manage-locations__footer {
+    background-color: var(--theme-card-muted) !important;
+    color: var(--theme-text);
+    border-color: var(--theme-border);
+}
+
+body[data-weather-theme] .model-card__heading-text,
+body[data-weather-theme] .settings__heading,
+body[data-weather-theme] .manage-locations__section-heading,
+body[data-weather-theme] .days-forecast__heading,
+body[data-weather-theme] .hourly-forecast__heading,
+body[data-weather-theme] .aqi-forecast__heading,
+body[data-weather-theme] .recent-search__heading {
+    color: var(--theme-heading);
+}
+
+body[data-weather-theme] .site-header {
+    background-color: var(--theme-surface) !important;
+    color: var(--theme-text);
+}
+
+body[data-weather-theme] .main-container {
+    background-color: var(--theme-page) !important;
+}
+
+body[data-weather-theme] .hourly-forecast__table,
+body[data-weather-theme] .days-forecast__box,
+body[data-weather-theme] .aqi-forecast__table,
+body[data-weather-theme] .aqi-forecast__mobile-row {
+    background-color: var(--theme-card) !important;
+}
+
+body[data-theme-mode="dark"] .hourly-forecast__sticky-column {
+    background-color: var(--theme-card-muted) !important;
+}
+
+body[data-theme-mode="dark"] .current-weather__sun-box {
+    color: var(--theme-text);
+    background: linear-gradient(to bottom, var(--theme-sun-start), var(--theme-sun-end)) !important;
+}
+
+body[data-theme-mode="dark"] .days-forecast__box--today {
+    background-color: #263b58 !important;
+    border-color: #7698b8 !important;
+}
+
+body[data-theme-mode="dark"] .days-forecast__today-heading {
+    background-color: #f4d58e;
+    color: #3f3218;
+}
+
+body[data-theme-mode="dark"] .aqi-forecast__aqi,
+body[data-theme-mode="dark"] .aqi-forecast__table-heading {
+    background-color: #2d516e;
+    color: #f3f8ff;
+}
+
+body[data-theme-mode="dark"] .aqi-forecast__aqi-value {
+    color: #12301a;
+}
+
+body[data-theme-mode="dark"] .aqi-guide__heading,
+body[data-theme-mode="dark"] .aqi-guide__status {
+    color: var(--theme-heading);
+}
+
+body[data-theme-mode="dark"] .aqi-guide__tagline {
+    color: #94b7dd;
+}
+
+body[data-theme-mode="dark"] .aqi-guide__box--good {
+    color: #16351d;
+}
+
+body[data-theme-mode="dark"] .aqi-guide__box--good .aqi-guide__status {
+    color: #16351d;
+}
+
+body[data-theme-mode="dark"] .aqi-guide__box--moderate {
+    color: #5f4100;
+}
+
+body[data-theme-mode="dark"] .aqi-guide__box--moderate .aqi-guide__status {
+    color: #5f4100;
+}
+
+body[data-theme-mode="dark"] .aqi-guide__box--sensitive {
+    color: #71300d;
+}
+
+body[data-theme-mode="dark"] .aqi-guide__box--sensitive .aqi-guide__status {
+    color: #71300d;
+}
+
+body[data-theme-mode="dark"] .aqi-guide__box--unhealthy {
+    color: #75151b;
+}
+
+body[data-theme-mode="dark"] .aqi-guide__box--unhealthy .aqi-guide__status {
+    color: #75151b;
+}
+
+body[data-theme-mode="dark"] .aqi-guide__box--very-unhealthy {
+    color: #453275;
+}
+
+body[data-theme-mode="dark"] .aqi-guide__box--very-unhealthy .aqi-guide__status {
+    color: #453275;
+}
+
+body[data-theme-mode="dark"] .aqi-guide__box--hazardous {
+    color: #f8eaf1;
+}
+
+body[data-theme-mode="dark"] #scroll-top-btn {
+    background-color: var(--theme-accent);
+    color: var(--color-white);
+    border-color: #a8c7e6;
+}
+
+body[data-theme-mode="dark"] .current-weather__temp-range-value,
+body[data-theme-mode="dark"] .current-weather__update-time {
+    background-color: #dcecf9 !important;
+    color: #102a43 !important;
+    border-color: #9bbbd7 !important;
+}
+
+body[data-theme-mode="dark"] .current-weather__status-btn {
+    border-color: #9bbbd7 !important;
+}
+
+body[data-theme-mode="dark"] .current-weather__refresh-data-btn {
+    color: #102a43 !important;
+}
+
+body[data-theme-mode="dark"] .current-weather__status-btn:hover {
+    background-color: #b8d7ef !important;
+    color: #102a43 !important;
+}
+
+body[data-theme-mode="dark"] .manage-locations__message,
+body[data-theme-mode="dark"] .recent-search__message {
+    background-color: #263b58 !important;
+    color: #edf5ff !important;
+    border: 1px solid #7698b8;
+}
+
+body[data-theme-mode="dark"] .manage-locations__clearall-button {
+    background-color: #263b58 !important;
+    color: #edf5ff !important;
+    border-color: #7698b8 !important;
+}
+
+body[data-theme-mode="dark"] .manage-locations__clearall-button:hover {
+    background-color: #345575 !important;
+}
+
+body[data-theme-mode="dark"] .settings__radio {
+    background-color: #263b58 !important;
+    color: #edf5ff !important;
+    border-color: #7698b8 !important;
+}
+
+body[data-theme-mode="dark"] .settings__radio .settings__label,
+body[data-theme-mode="dark"] .settings__radio .settings__label-description {
+    color: #edf5ff !important;
+}
+
+body[data-theme-mode="dark"] .settings__radio:has(.settings__input:checked) {
+    background-color: #315b83 !important;
+    border-color: #42a5f5 !important;
+}
+
+body[data-theme-mode="dark"] .settings__radio:has(.settings__input:checked) .settings__label,
+body[data-theme-mode="dark"] .settings__radio:has(.settings__input:checked) .settings__label-description {
+    color: #ffffff !important;
+}
+
+body[data-theme-mode="dark"] .settings__radio-control {
+    border-color: #c8d8e8;
+}
+
+body[data-theme-mode="dark"] .settings__input:checked+.settings__radio-control {
+    border-color: #64b5f6;
+}
+
+body[data-theme-mode="dark"] .settings__input:checked+.settings__radio-control::after {
+    background-color: #64b5f6;
+}
+
+body[data-theme-mode="dark"] .settings__label {
+    color: #edf5ff !important;
+    background-color: transparent !important;
+}
+
+body[data-theme-mode="dark"] .model-card__tagline-settings,
+body[data-theme-mode="dark"] .model-card__tagline-location {
+    color: #b6c8df !important;
+}
+
+
+body[data-theme-mode="dark"] .settings__close-button:hover {
+    background-color: #345575 !important;
+    color: #ffffff !important;
+    border-color: #a8c7e6 !important;
+    box-shadow: 0 0 8px rgba(168, 199, 230, 0.35);
+}
+
+body[data-theme-mode="dark"] .current-weather__sun-icon .generic-icons__current-weather--sun {
+    filter: none !important;
+}
+
+body[data-theme-mode="dark"] {
+    background-color: var(--theme-page) !important;
+}
+
+body[data-theme-mode="dark"] .generic-icons,
+body[data-theme-mode="dark"] .site-header__search-icon,
+body[data-theme-mode="dark"] .site_header__search-result-icon,
+body[data-theme-mode="dark"] .site-header__save-icon,
+body[data-theme-mode="dark"] .generic-icons__close {
+    filter: invert(1) !important;
+}
+
+body[data-theme-mode="dark"] .current-weather__weather-icon,
+body[data-theme-mode="dark"] .generic-icons__current-weather--sun {
+    filter: none !important;
+}
+
+body[data-theme-mode="dark"] .site_header__search-result-icon,
+body[data-theme-mode="dark"] .site-header__save-icon,
+body[data-theme-mode="dark"] .site_header__search-result-box i,
+body[data-theme-mode="dark"] .site_header__search-result-box--mobile i,
+body[data-theme-mode="dark"] .site_header__search-result-box--location i {
+    color: #ffffff !important;
+    filter: none !important;
+}
+
+body[data-theme-mode="dark"] i.site-header__search-icon,
+body[data-theme-mode="dark"] .mobile-site-header i.site-header__search-icon {
+    color: #ffffff !important;
+    filter: none !important;
+}
+
+body[data-theme-mode="dark"] .aqi-guide__tagline {
+    color: var(--theme-muted) !important;
+    background-color: var(--theme-card-muted) !important;
+    padding: 5px 12px;
+    border-radius: 8px;
+}
+
+body[data-theme-mode="dark"] .aqi-forecast__mobile-particle-desc {
+    background-color: transparent !important;
+    color: var(--theme-text) !important;
+}
+
+body[data-theme-mode="dark"] .footer.layout-container {
+    background-color: var(--theme-page) !important;
+    color: var(--theme-text) !important;
+    border-color: var(--theme-border) !important;
+}
+
+body[data-theme-mode="dark"] .footer__tagline,
+body[data-theme-mode="dark"] .footer__link,
+body[data-theme-mode="dark"] .footer__about-text,
+body[data-theme-mode="dark"] .footer__conclusion {
+    color: var(--theme-text) !important;
+}
+
+body[data-theme-mode="dark"] .footer__heading {
+    color: #78b9ff !important;
+}
+
+body[data-theme-mode="dark"] .footer__theme-tagline {
+    color: var(--theme-muted) !important;
+    background-color: var(--theme-card-muted) !important;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+body[data-theme-mode="light"] .footer.layout-container {
+    background-color: var(--theme-page) !important;
+    color: var(--theme-text);
+    border-color: var(--theme-border);
+}
+
+body[data-theme-mode="light"] .footer__logo,
+body[data-theme-mode="light"] .footer__link,
+body[data-theme-mode="light"] .footer__conclusion {
+    color: var(--theme-text);
+}
+
+body[data-theme-mode="light"] .footer__tagline,
+body[data-theme-mode="light"] .footer__about-text,
+body[data-theme-mode="light"] .footer__theme-tagline {
+    color: var(--theme-muted);
+}
+
+body[data-theme-mode="light"] .aqi-guide__tagline {
+    color: var(--theme-muted);
+    background-color: var(--theme-card-muted);
+    border-color: var(--theme-border);
+    padding: 5px 12px;
+    border-radius: 8px;
+}
+
+body[data-theme-mode="light"] .footer__theme-tagline {
+    background-color: var(--theme-card-muted);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+body[data-theme-mode="light"] .footer__heading {
+    color: var(--theme-accent);
+}
+
+body[data-theme-mode="light"] .footer__separator,
+body[data-theme-mode="light"] .footer__conclusion {
+    border-color: var(--theme-border);
+    background-color: var(--theme-border);
+}
+
+body[data-theme-mode="light"] .footer__conclusion {
+    background-color: transparent;
+}
+
+body[data-theme-mode="light"] .footer__theme-btn {
+    background-color: var(--theme-card-muted);
+    color: var(--theme-text);
+    border-color: var(--theme-border);
+}

@@ -1,0 +1,2374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breezely - Weather App</title>
+    <link rel="icon" type="image/png" href="./Assets/Images/Breezely logo.png">
+    <link rel="stylesheet" href="./root.css">
+    <link rel="stylesheet" href="./base.css">
+    <link rel="stylesheet" href="./components.css">
+    <link rel="stylesheet" href="./theme.css">
+    <link rel="stylesheet" href="./responsive.css">
+    <script src="https://kit.fontawesome.com/3dd7962506.js" crossorigin="anonymous"></script>
+</head>
+
+<body data-weather-theme="sunny" data-theme-mode="light">
+
+    <!-- loading spinner -->
+    <div class="app-loading" role="status" aria-live="polite">
+        <span class="loading-spinner" aria-hidden="true"></span>
+        <span>Loading weather...</span>
+    </div>
+
+    <!-- background overlays part -->
+    <div class="background-overlay"></div>
+    <div class="background-overlay background-overlay--second"></div>
+    <div class="background-overlay background-overlay--third"></div>
+
+    <!-- scroll to top button -->
+    <i class="fa-solid fa-circle-up" id="scroll-top-btn"></i>
+
+    <!-- header section part -->
+    <header class="site-header">
+
+        <div class="site-header__logo logo-group">
+            <img src="./Assets/Images/Breezely logo.png" alt="Breezely logo" class="breezely-logo">
+            <span class="breezely-name">Breezely</span>
+        </div>
+
+        <div class="site-header__search">
+            <img class="generic-icons generic-icons__search" src="./Assets/Icons/generic icons/search.svg"
+                alt="search-icon">
+            <input type="text" name="search-bar" class="site-header__search-bar" placeholder="Search any city...">
+            <button class="search-text-clear-btn" aria-label="Clear search">×</button>
+
+            <!-- Search results -->
+            <div class="site_header__search-result-box">
+
+                <div class="site_header__search-result-row" data-index="0">
+
+                    <div class="site_header__search-result-content">
+
+                        <i class="fa-solid fa-location-dot site_header__search-result-icon"></i>
+
+                        <div class="site_header__search-result-location">
+                            <span class="site_header__search-result-city"></span>
+
+                            <div class="site_header__search-result-area-part">
+                                <span class="site_header__search-result-state"></span><span>,</span>
+                                <span class="site_header__search-result-country"></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="site_header__search-result-flag">
+
+                        <i class="fa-regular fa-star site-header__save-icon"></i>
+                        <img class="site_header__search-result-flag-value" src="https://flagsapi.com//flat/32.png"
+                            alt="flag-icon">
+
+                    </div>
+
+                </div>
+
+                <div class="site_header__search-result-row" data-index="0">
+
+                    <div class="site_header__search-result-content">
+
+                        <i class="fa-solid fa-location-dot site_header__search-result-icon"></i>
+
+                        <div class="site_header__search-result-location">
+                            <span class="site_header__search-result-city"></span>
+
+                            <div class="site_header__search-result-area-part">
+                                <span class="site_header__search-result-state"></span><span>,</span>
+                                <span class="site_header__search-result-country"></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="site_header__search-result-flag">
+
+                        <i class="fa-regular fa-star site-header__save-icon"></i>
+                        <img class="site_header__search-result-flag-value" src="https://flagsapi.com//flat/32.png"
+                            alt="flag-icon">
+
+                    </div>
+
+                </div>
+
+                <div class="site_header__search-result-row" data-index="0">
+
+                    <div class="site_header__search-result-content">
+
+                        <i class="fa-solid fa-location-dot site_header__search-result-icon"></i>
+
+                        <div class="site_header__search-result-location">
+                            <span class="site_header__search-result-city"></span>
+
+                            <div class="site_header__search-result-area-part">
+                                <span class="site_header__search-result-state"></span><span>,</span>
+                                <span class="site_header__search-result-country"></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="site_header__search-result-flag">
+
+                        <i class="fa-regular fa-star site-header__save-icon"></i>
+                        <img class="site_header__search-result-flag-value" src="https://flagsapi.com//flat/32.png"
+                            alt="flag-icon">
+
+                    </div>
+
+                </div>
+
+                <div class="site_header__search-result-row" data-index="0">
+
+                    <div class="site_header__search-result-content">
+
+                        <i class="fa-solid fa-location-dot site_header__search-result-icon"></i>
+
+                        <div class="site_header__search-result-location">
+                            <span class="site_header__search-result-city"></span>
+
+                            <div class="site_header__search-result-area-part">
+                                <span class="site_header__search-result-state"></span><span>,</span>
+                                <span class="site_header__search-result-country"></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="site_header__search-result-flag">
+
+                        <i class="fa-regular fa-star site-header__save-icon"></i>
+                        <img class="site_header__search-result-flag-value" src="https://flagsapi.com//flat/32.png"
+                            alt="flag-icon">
+
+                    </div>
+
+                </div>
+
+                <div class="site_header__search-result-row" data-index="0">
+
+                    <div class="site_header__search-result-content">
+
+                        <i class="fa-solid fa-location-dot site_header__search-result-icon"></i>
+
+                        <div class="site_header__search-result-location">
+                            <span class="site_header__search-result-city"></span>
+
+                            <div class="site_header__search-result-area-part">
+                                <span class="site_header__search-result-state"></span><span>,</span>
+                                <span class="site_header__search-result-country"></span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="site_header__search-result-flag">
+
+                        <i class="fa-regular fa-star site-header__save-icon"></i>
+                        <img class="site_header__search-result-flag-value" src="https://flagsapi.com//flat/32.png"
+                            alt="flag-icon">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="site-header__actions">
+            <button type="button" class="site-header__btn site-header__btn--location">
+                <img class="generic-icons generic-icons__header" src="./Assets/Icons/generic icons/manage-location.svg"
+                    alt="manage-location-icon">
+                Manage Locations
+
+            </button>
+            <button type="button" class="site-header__btn site-header__btn--settings">
+                <img class="generic-icons generic-icons__header" src="./Assets/Icons/generic icons/settings.svg"
+                    alt="settings-icon">
+                Settings
+            </button>
+
+        </div>
+
+        <!-- responsive hamburger group -->
+        <div class="hamburger-group">
+            <i class="fa-solid fa-bars hamburger-icon"></i>
+        </div>
+
+    </header>
+
+    <!-- mobile header section part -->
+    <div class="mobile-site-header">
+
+        <div class="mobile-site-header__navbar">
+            <i class="fa-solid fa-gear mobile-site-header__action mobile-site-header__action--settings"></i>
+            <i class="fa-regular fa-circle-xmark mobile-site-header__action mobile-site-header__action--closeicon"></i>
+        </div>
+
+        <div class="mobile-site-header__content">
+
+            <div class="site-header__search site-header__search--mobile">
+                <i class="fa-solid fa-magnifying-glass site-header__btn--location site-header__search-icon"></i>
+                <input type="text" name="search-bars" class="site-header__search-bar site-header__search-bar--mobile"
+                    placeholder="Search any city...">
+                <button class="search-text-clear-btn" aria-label="Clear search">×</button>
+
+                <!-- Search results -->
+                <div class="site_header__search-result-box site_header__search-result-box--mobile">
+
+                    <div class="site_header__search-result-row site_header__search-result-row--mobile" data-index="0">
+
+                        <div class="site_header__search-result-content">
+                            <i class="fa-solid fa-location-dot site_header__search-result-icon"></i>
+
+                            <div class="site_header__search-result-location">
+                                <span
+                                    class="site_header__search-result-city site_header__search-result-city--mobile"></span>
+
+                                <div class="site_header__search-result-area-part">
+                                    <span
+                                        class="site_header__search-result-state site_header__search-result-state--mobile"></span><span>,</span>
+                                    <span
+                                        class="site_header__search-result-country site_header__search-result-country--mobile"></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="site_header__search-result-flag">
+
+                            <i class="fa-regular fa-star site-header__save-icon"></i>
+                            <img class="site_header__search-result-flag-value site_header__search-result-flag-value--mobile"
+                                src="https://flagsapi.com//flat/32.png" alt="flag-icon">
+
+                        </div>
+
+                    </div>
+
+                    <div class="site_header__search-result-row site_header__search-result-row--mobile" data-index="0">
+
+                        <div class="site_header__search-result-content">
+                            <i class="fa-solid fa-location-dot site_header__search-result-icon"></i>
+
+                            <div class="site_header__search-result-location">
+                                <span
+                                    class="site_header__search-result-city site_header__search-result-city--mobile"></span>
+
+                                <div class="site_header__search-result-area-part">
+                                    <span
+                                        class="site_header__search-result-state site_header__search-result-state--mobile"></span><span>,</span>
+                                    <span
+                                        class="site_header__search-result-country site_header__search-result-country--mobile"></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="site_header__search-result-flag">
+
+                            <i class="fa-regular fa-star site-header__save-icon"></i>
+                            <img class="site_header__search-result-flag-value site_header__search-result-flag-value--mobile"
+                                src="https://flagsapi.com//flat/32.png" alt="flag-icon">
+
+                        </div>
+
+                    </div>
+
+                    <div class="site_header__search-result-row site_header__search-result-row--mobile" data-index="0">
+
+                        <div class="site_header__search-result-content">
+                            <i class="fa-solid fa-location-dot site_header__search-result-icon"></i>
+
+                            <div class="site_header__search-result-location">
+                                <span
+                                    class="site_header__search-result-city site_header__search-result-city--mobile"></span>
+
+                                <div class="site_header__search-result-area-part">
+                                    <span
+                                        class="site_header__search-result-state site_header__search-result-state--mobile"></span><span>,</span>
+                                    <span
+                                        class="site_header__search-result-country site_header__search-result-country--mobile"></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="site_header__search-result-flag">
+
+                            <i class="fa-regular fa-star site-header__save-icon"></i>
+                            <img class="site_header__search-result-flag-value site_header__search-result-flag-value--mobile"
+                                src="https://flagsapi.com//flat/32.png" alt="flag-icon">
+
+                        </div>
+
+                    </div>
+
+                    <div class="site_header__search-result-row site_header__search-result-row--mobile" data-index="0">
+
+                        <div class="site_header__search-result-content">
+                            <i class="fa-solid fa-location-dot site_header__search-result-icon"></i>
+
+                            <div class="site_header__search-result-location">
+                                <span
+                                    class="site_header__search-result-city site_header__search-result-city--mobile"></span>
+
+                                <div class="site_header__search-result-area-part">
+                                    <span
+                                        class="site_header__search-result-state site_header__search-result-state--mobile"></span><span>,</span>
+                                    <span
+                                        class="site_header__search-result-country site_header__search-result-country--mobile"></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="site_header__search-result-flag">
+
+                            <i class="fa-regular fa-star site-header__save-icon"></i>
+                            <img class="site_header__search-result-flag-value site_header__search-result-flag-value--mobile"
+                                src="https://flagsapi.com//flat/32.png" alt="flag-icon">
+
+                        </div>
+
+                    </div>
+
+                    <div class="site_header__search-result-row site_header__search-result-row--mobile" data-index="0">
+
+                        <div class="site_header__search-result-content">
+                            <i class="fa-solid fa-location-dot site_header__search-result-icon"></i>
+
+                            <div class="site_header__search-result-location">
+                                <span
+                                    class="site_header__search-result-city site_header__search-result-city--mobile"></span>
+
+                                <div class="site_header__search-result-area-part">
+                                    <span
+                                        class="site_header__search-result-state site_header__search-result-state--mobile"></span><span>,</span>
+                                    <span
+                                        class="site_header__search-result-country site_header__search-result-country--mobile"></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="site_header__search-result-flag">
+
+                            <i class="fa-regular fa-star site-header__save-icon"></i>
+                            <img class="site_header__search-result-flag-value site_header__search-result-flag-value--mobile"
+                                src="https://flagsapi.com//flat/32.png" alt="flag-icon">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="manage-locations__section">
+
+                <h3 class="manage-locations__section-heading model-header-tagline">
+                    Current Location
+                </h3>
+
+                <div class="manage-locations__item manage-locations__item--current model-box">
+
+                    <div class="manage-locations__place-info">
+
+                        <img class="generic-icons generic-icons__location"
+                            src="./Assets/Icons/generic icons/manage-location.svg" alt="manage-location-icon">
+
+                        <div class="manage-locations__place">
+                            <h3 class="manage-locations__city manage-locations__city--current">London</h3>
+                            <p
+                                class="manage-locations__country manage-locations__country--current model-header-tagline">
+                                United Kingdom
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="manage-locations__temperature">
+
+                        <img class="weather-icons weather-icons__location--current" src=""
+                            alt="current-location-weather-icon">
+
+                        <p class="manage-locations__temperature-value manage-locations__temp-value--current">29&deg;</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="mobile-site-header__actions">
+                <button class="mobile-site-header__action mobile-site-header__action--locations site-header__btn">
+                    Manage Locations
+                </button>
+            </div>
+
+            <p class="app-version-text settings__version model-info-text">
+                <span>&#9432;</span> Version 1.0.0
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- ------- main-container part ---------- -->
+    <main class="main-container">
+
+        <!--  current weather (hero) container -->
+        <div class="current-weather layout-container">
+            <div class="weather-loading-overlay" role="status" aria-live="polite" hidden>
+                <span class="loading-spinner" aria-hidden="true"></span>
+                <span>Loading weather...</span>
+            </div>
+
+            <div class="current-weather__content">
+
+                <div class="current-weather__temperature current-weather__info">
+                    <h1 class="current-weather__temperature-value">30</h1>
+                    <img class="current-weather__weather-icon" src="./Assets/Icons/weather icons/clear-day.svg"
+                        alt="Current weather">
+                </div>
+
+                <div class="current-weather__condition current-weather__info">
+                    <p class="current-weather__condition-type">Sunny</p>
+                </div>
+
+                <div class="current-weather__temp-range current-weather__info">
+
+                    <div class="current-weather__temp-range-value">
+                        <strong>H:</strong>
+                        <p class="high_temp"></p>
+                    </div>
+
+                    <div class="current-weather__temp-range-value">
+                        <strong>L:</strong>
+                        <p class="low_temp"></p>
+                    </div>
+
+                </div>
+
+                <div class="current-weather__feel current-weather__info">
+                    Feels like <span class="current-weather__feel-temp"></span>
+                </div>
+
+                <div class="current-weather__location current-weather__info">
+                    <img class="generic-icons generic-icons__current-weather generic-icons__current-weather--location"
+                        src="./Assets/Icons/generic icons/manage-location.svg" alt="location-icon">
+                    <h3 class="current-weather__location-city">London</h3><span>,</span>
+                    <h3 class="current-weather__location-country">United Kingdom</h3>
+                </div>
+
+                <div class="current-weather__update-time current-weather__info">
+                    <strong>Last Updated:</strong> <span class="current-weather__update-time-value">4:00 AM</span>
+                </div>
+
+                <div class="current-weather__status current-weather__info">
+                    <button type="button"
+                        class="current-weather__save-location-status-btn current-weather__status-btn">Save
+                        Location</button>
+                    <button type="button"
+                        class="current-weather__refresh-data-btn current-weather__status-btn">Refresh</button>
+                </div>
+
+            </div>
+
+            <div class="current-weather__metrics">
+
+                <!-- humidity metric box -->
+                <div class="current-weather__metric-box">
+
+                    <div>
+                        <img class="generic-icons generic-icons__current-weather generic-icons__current-weather--metric"
+                            src="./Assets/Icons/generic icons/humidity.svg" alt="humidity-icon">
+                    </div>
+
+                    <div class="current-weather__metric-info">
+                        <p class="current-weather__metric-type">Humidity</p>
+                        <h2 class="current-weather__metric-value humidity_value">62</h2>
+                        <h3 class="current-weather__metric-status"></h3>
+                    </div>
+
+                </div>
+
+                <!-- wind speed metric box -->
+                <div class="current-weather__metric-box">
+                    <div>
+                        <img class="generic-icons generic-icons__current-weather generic-icons__current-weather--metric"
+                            src="./Assets/Icons/generic icons/wind.svg" alt="wind-icon">
+                    </div>
+
+                    <div class="current-weather__metric-info">
+                        <p class="current-weather__metric-type">Wind Speed</p>
+                        <h2 class="current-weather__metric-value wind_speed">23 km/h</h2>
+                        <h3 class="current-weather__metric-status wind_direction">SE</h3>
+                    </div>
+
+                </div>
+
+                <!-- chance-rain metric box -->
+                <div class="current-weather__metric-box">
+                    <div>
+                        <img class="generic-icons generic-icons__current-weather generic-icons__current-weather--metric"
+                            src="./Assets/Icons/generic icons/umbrella.svg" alt="umbrella-icon">
+                    </div>
+
+                    <div class="current-weather__metric-info">
+                        <p class="current-weather__metric-type">Chance of Rain</p>
+                        <h2 class="current-weather__metric-value rain_chance">5%</h2>
+                        <h3 class="current-weather__metric-status"></h3>
+                    </div>
+
+                </div>
+
+                <!-- uv-index metric box -->
+                <div class="current-weather__metric-box">
+                    <div>
+                        <img class="generic-icons generic-icons__current-weather generic-icons__current-weather--metric"
+                            src="./Assets/Icons/generic icons/uv-index.svg" alt="uv-index-icon">
+                    </div>
+
+                    <div class="current-weather__metric-info">
+                        <p class="current-weather__metric-type">UV Index</p>
+                        <h2 class="current-weather__metric-value uv_index">10</h2>
+                        <h3 class="current-weather__metric-status uv_index_status">Very High</h3>
+                    </div>
+
+                </div>
+
+                <!-- pressure metric box -->
+                <div class="current-weather__metric-box">
+                    <div>
+                        <img class="generic-icons generic-icons__current-weather generic-icons__current-weather--metric"
+                            src="./Assets/Icons/generic icons/pressure.svg" alt="pressure-icon">
+                    </div>
+
+                    <div class="current-weather__metric-info">
+                        <p class="current-weather__metric-type">Pressure</p>
+                        <h2 class="current-weather__metric-value pressure_value">1</h2>
+                        <h3 class="current-weather__metric-status"></h3>
+                    </div>
+
+                </div>
+
+                <!-- visibility metric box -->
+                <div class="current-weather__metric-box">
+                    <div>
+                        <img class="generic-icons generic-icons__current-weather generic-icons__current-weather--metric"
+                            src="./Assets/Icons/generic icons/visibility.svg" alt="visibility-icon">
+                    </div>
+
+                    <div class="current-weather__metric-info">
+                        <p class="current-weather__metric-type">Visibility</p>
+                        <h2 class="current-weather__metric-value visibility_value">10km</h2>
+                        <h3 class="current-weather__metric-status"></h3>
+                    </div>
+
+                </div>
+
+                <!-- sunrise-sunset metric box -->
+                <div class="current-weather__metric-box current-weather__sun-box">
+
+                    <div class="current-weather__sun-time current-weather__sun-time--left">
+                        <span class="current-weather__sun-event-value">Sunrise</span>
+                        <span class="current-weather__sun-time-value sunrise_time">5:12 AM</span>
+                    </div>
+
+                    <div class="current-weather__arc-box">
+                        <!-- SVG handles the perfect mathematical curve and dotted style -->
+                        <svg viewBox="0 0 100 50" class="current-weather__arc-svg" preserveAspectRatio="none">
+
+                            <path id="sunPath" d="M 4,50 A 46,46 0 0,1 96,50" fill="none" stroke="rgba(255,255,255,0.6)"
+                                stroke-width="0.8" stroke-dasharray="2,2">
+                            </path>
+
+                        </svg>
+
+                        <!-- Left Horizon Icon -->
+                        <div class="current-weather__horizon-icon current-weather__horizon-icon--left">
+                            <span>
+                                <img class="generic-icons generic-icons__current-weather generic-icons__current-weather--suntiming"
+                                    src="./Assets/Icons/generic icons/sunrise.svg" alt="sunrise-icon"></span>
+                        </div>
+
+                        <!-- Traveling Main Sun (Positioned dynamically via top/left) -->
+                        <div class="current-weather__sun-icon">
+                            <img class="generic-icons generic-icons__current-weather generic-icons__current-weather--sun"
+                                src="./Assets/Icons/weather icons/clear-day.svg" alt="sun-icon">
+                        </div>
+
+                        <!-- Right Horizon Icon -->
+                        <div class="current-weather__horizon-icon current-weather__horizon-icon--right">
+                            <span>
+                                <img class="generic-icons generic-icons__current-weather generic-icons__current-weather--suntiming"
+                                    src="./Assets/Icons/generic icons/sunset.svg" alt="sunset-icon">
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="current-weather__sun-time current-weather__sun-time--right">
+                        <span class="current-weather__sun-event-value">Sunset</span>
+                        <span class="current-weather__sun-time-value sunset_time">8:48 PM</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- hourly-forecast container -->
+        <div class="hourly-forecast layout-container">
+
+            <div class="hourly-forecast__header layout-header">
+                <div class="layout-heading-group">
+                    <img class="generic-icons generic-icons__layout-header"
+                        src="./Assets/Icons/generic icons/calendar.svg" alt="calender-icon">
+                    <h3 class="layout-heading">Today's Hourly Forecast</h3>
+                </div>
+                <p class="layout-tagline">Weather outlook for next 24 hours.</p>
+            </div>
+
+            <div class="hourly-forecast__wrapper">
+
+                <table class="hourly-forecast__table">
+
+                    <thead>
+                        <tr>
+                            <th class="hourly-forecast__sticky-column"></th>
+                            <th class="hourly-forecast__time">Now</th>
+                            <th class="hourly-forecast__time">5:00 AM</th>
+                            <th class="hourly-forecast__time">6:00 AM</th>
+                            <th class="hourly-forecast__time">7:00 AM</th>
+                            <th class="hourly-forecast__time">8:00 AM</th>
+                            <th class="hourly-forecast__time">9:00 AM</th>
+                            <th class="hourly-forecast__time">10:00 AM</th>
+                            <th class="hourly-forecast__time">11:00 AM</th>
+                            <th class="hourly-forecast__time">12:00 PM</th>
+                            <th class="hourly-forecast__time">1:00 PM</th>
+                            <th class="hourly-forecast__time">2:00 PM</th>
+                            <th class="hourly-forecast__time">3:00 PM</th>
+                            <th class="hourly-forecast__time">4:00 PM</th>
+                            <th class="hourly-forecast__time">5:00 PM</th>
+                            <th class="hourly-forecast__time">6:00 PM</th>
+                            <th class="hourly-forecast__time">7:00 PM</th>
+                            <th class="hourly-forecast__time">8:00 PM</th>
+                            <th class="hourly-forecast__time">9:00 PM</th>
+                            <th class="hourly-forecast__time">10:00 PM</th>
+                            <th class="hourly-forecast__time">11:00 PM</th>
+                            <th class="hourly-forecast__time">12:00 AM</th>
+                            <th class="hourly-forecast__time">1:00 AM</th>
+                            <th class="hourly-forecast__time">2:00 AM</th>
+                            <th class="hourly-forecast__time">3:00 AM</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+
+                            <th class="hourly-forecast__sticky-column"> Temp (&deg;C)</th>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">8&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">9&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">9&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">10&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">10&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">10&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">11&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">12&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">12&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">13&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">14&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">15&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">15&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">14&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">13&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">11&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">10&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">10&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">9&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">8&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">8&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">7&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">6&deg;</div>
+                            </td>
+                            <td>
+                                <img class="weather-icons weather-icons__hourly-forecast"
+                                    src="./Assets/Icons/weather icons/clear-day.svg" alt="weather-icon">
+                                <div class="hourly-forecast__temp-value">5&deg;</div>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <th class="hourly-forecast__sticky-column">Rain Chance</th>
+                            <td class="hourly-forecast__rain-chance-value">2%</td>
+                            <td class="hourly-forecast__rain-chance-value">4%</td>
+                            <td class="hourly-forecast__rain-chance-value">0%</td>
+                            <td class="hourly-forecast__rain-chance-value">0%</td>
+                            <td class="hourly-forecast__rain-chance-value">6%</td>
+                            <td class="hourly-forecast__rain-chance-value">4%</td>
+                            <td class="hourly-forecast__rain-chance-value">8%</td>
+                            <td class="hourly-forecast__rain-chance-value">7%</td>
+                            <td class="hourly-forecast__rain-chance-value">4%</td>
+                            <td class="hourly-forecast__rain-chance-value">8%</td>
+                            <td class="hourly-forecast__rain-chance-value">4%</td>
+                            <td class="hourly-forecast__rain-chance-value">2%</td>
+                            <td class="hourly-forecast__rain-chance-value">0%</td>
+                            <td class="hourly-forecast__rain-chance-value">0%</td>
+                            <td class="hourly-forecast__rain-chance-value">2%</td>
+                            <td class="hourly-forecast__rain-chance-value">5%</td>
+                            <td class="hourly-forecast__rain-chance-value">10%</td>
+                            <td class="hourly-forecast__rain-chance-value">14%</td>
+                            <td class="hourly-forecast__rain-chance-value">15%</td>
+                            <td class="hourly-forecast__rain-chance-value">1%</td>
+                            <td class="hourly-forecast__rain-chance-value">1%</td>
+                            <td class="hourly-forecast__rain-chance-value">0%</td>
+                            <td class="hourly-forecast__rain-chance-value">0%</td>
+                            <td class="hourly-forecast__rain-chance-value">0%</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- 7 days forecast container -->
+        <div class="days-forecast layout-container">
+
+            <div class="days-forecast__header layout-header">
+                <div class="layout-heading-group">
+                    <img class="generic-icons generic-icons__layout-header"
+                        src="./Assets/Icons/generic icons/calendar.svg" alt="calender-icon">
+                    <h3 class="layout-heading">7-DAY FORECAST</h3>
+                </div>
+                <p class="layout-tagline">Weather outlook for next 7 days.</p>
+            </div>
+
+            <div class="days-forecast__container">
+
+                <div class="days-forecast__box days-forecast__box--today">
+
+                    <h3 class="days-forecast__today-heading">TODAY</h3>
+
+                    <!-- 1. Meta / Info Section -->
+                    <div class="days-forecast__meta">
+                        <p class="days-forecast__day">Tue</p>
+                        <p class="days-forecast__date">11 July</p>
+                        <img class="weather-icons weather-icons__day-forecast" src="" alt="day-weather-icon">
+                        <p class="days-forecast__status">Sunny</p>
+                    </div>
+
+                    <!-- 2. Temperature Section -->
+                    <div class="days-forecast__temps">
+                        <div class="days-forecast__temp-group">
+                            <h4 class="days-forecast__temp-val days-forecast__temp-val--high">35&deg;</h4>
+                            <p class="days-forecast__temp-label">High</p>
+                        </div>
+
+                        <div class="days-forecast__separator"></div>
+
+                        <div class="days-forecast__temp-group">
+                            <h4 class="days-forecast__temp-val days-forecast__temp-val--low">12&deg;</h4>
+                            <p class="days-forecast__temp-label">Low</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. Stats / Metrics Section -->
+                    <div class="days-forecast__stats">
+                        <div class="days-forecast__stat-item">
+                            <img class="generic-icons generic-icons__day-forecast--stat"
+                                src="./Assets/Icons/generic icons/humidity.svg" alt="humidity-icon">
+                            <p class="days-forecast__stat-val days-forecast__stat-rain">5%</p>
+                        </div>
+
+                        <div class="days-forecast__stat-item">
+                            <img class="generic-icons generic-icons__day-forecast--stat"
+                                src="./Assets/Icons/generic icons/wind.svg" alt="wind-icon">
+                            <p class="days-forecast__stat-val days-forecast__stat-wind">23km/h</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="days-forecast__box">
+
+                    <!-- 1. Meta / Info Section -->
+                    <div class="days-forecast__meta">
+                        <p class="days-forecast__day">Wed</p>
+                        <p class="days-forecast__date">12 July</p>
+                        <img class="weather-icons weather-icons__day-forecast" src="" alt="day-weather-icon">
+                        <p class="days-forecast__status">Partly Cloudy</p>
+                    </div>
+
+                    <!-- 2. Temperature Section -->
+                    <div class="days-forecast__temps">
+                        <div class="days-forecast__temp-group">
+                            <h4 class="days-forecast__temp-val days-forecast__temp-val--high">31&deg;</h4>
+                            <p class="days-forecast__temp-label">High</p>
+                        </div>
+
+                        <div class="days-forecast__separator"></div>
+
+                        <div class="days-forecast__temp-group">
+                            <h4 class="days-forecast__temp-val days-forecast__temp-val--low">14&deg;</h4>
+                            <p class="days-forecast__temp-label">Low</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. Stats / Metrics Section -->
+                    <div class="days-forecast__stats">
+                        <div class="days-forecast__stat-item">
+                            <img class="generic-icons generic-icons__day-forecast--stat"
+                                src="./Assets/Icons/generic icons/humidity.svg" alt="humidity-icon">
+                            <p class="days-forecast__stat-val days-forecast__stat-rain">10%</p>
+                        </div>
+
+                        <div class="days-forecast__stat-item">
+                            <img class="generic-icons generic-icons__day-forecast--stat"
+                                src="./Assets/Icons/generic icons/wind.svg" alt="wind-icon">
+                            <p class="days-forecast__stat-val days-forecast__stat-wind">18km/h</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="days-forecast__box">
+
+                    <!-- 1. Meta / Info Section -->
+                    <div class="days-forecast__meta">
+                        <p class="days-forecast__day">Thurs</p>
+                        <p class="days-forecast__date">13 July</p>
+                        <img class="weather-icons weather-icons__day-forecast" src="" alt="day-weather-icon">
+                        <p class="days-forecast__status">Light Rain</p>
+                    </div>
+
+                    <!-- 2. Temperature Section -->
+                    <div class="days-forecast__temps">
+                        <div class="days-forecast__temp-group">
+                            <h4 class="days-forecast__temp-val days-forecast__temp-val--high">28&deg;</h4>
+                            <p class="days-forecast__temp-label">High</p>
+                        </div>
+
+                        <div class="days-forecast__separator"></div>
+
+                        <div class="days-forecast__temp-group">
+                            <h4 class="days-forecast__temp-val days-forecast__temp-val--low">16&deg;</h4>
+                            <p class="days-forecast__temp-label">Low</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. Stats / Metrics Section -->
+                    <div class="days-forecast__stats">
+                        <div class="days-forecast__stat-item">
+                            <img class="generic-icons generic-icons__day-forecast--stat"
+                                src="./Assets/Icons/generic icons/humidity.svg" alt="humidity-icon">
+                            <p class="days-forecast__stat-val days-forecast__stat-rain">60%</p>
+                        </div>
+
+                        <div class="days-forecast__stat-item">
+                            <img class="generic-icons generic-icons__day-forecast--stat"
+                                src="./Assets/Icons/generic icons/wind.svg" alt="wind-icon">
+                            <p class="days-forecast__stat-val days-forecast__stat-wind">20km/h</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="days-forecast__box">
+
+                    <!-- 1. Meta / Info Section -->
+                    <div class="days-forecast__meta">
+                        <p class="days-forecast__day">Fri</p>
+                        <p class="days-forecast__date">14 July</p>
+                        <img class="weather-icons weather-icons__day-forecast" src="" alt="day-weather-icon">
+                        <p class="days-forecast__status">Cloudy</p>
+                    </div>
+
+                    <!-- 2. Temperature Section -->
+                    <div class="days-forecast__temps">
+                        <div class="days-forecast__temp-group">
+                            <h4 class="days-forecast__temp-val days-forecast__temp-val--high">29&deg;</h4>
+                            <p class="days-forecast__temp-label">High</p>
+                        </div>
+
+                        <div class="days-forecast__separator"></div>
+
+                        <div class="days-forecast__temp-group">
+                            <h4 class="days-forecast__temp-val days-forecast__temp-val--low">15&deg;</h4>
+                            <p class="days-forecast__temp-label">Low</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. Stats / Metrics Section -->
+                    <div class="days-forecast__stats">
+                        <div class="days-forecast__stat-item">
+                            <img class="generic-icons generic-icons__day-forecast--stat"
+                                src="./Assets/Icons/generic icons/humidity.svg" alt="humidity-icon">
+                            <p class="days-forecast__stat-val days-forecast__stat-rain">30%</p>
+                        </div>
+
+                        <div class="days-forecast__stat-item">
+                            <img class="generic-icons generic-icons__day-forecast--stat"
+                                src="./Assets/Icons/generic icons/wind.svg" alt="wind-icon">
+                            <p class="days-forecast__stat-val days-forecast__stat-wind">16km/h</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="days-forecast__box">
+
+                    <!-- 1. Meta / Info Section -->
+                    <div class="days-forecast__meta">
+                        <p class="days-forecast__day">Sat</p>
+                        <p class="days-forecast__date">15 July</p>
+                        <img class="weather-icons weather-icons__day-forecast" src="" alt="day-weather-icon">
+                        <p class="days-forecast__status">Mostly Sunny</p>
+                    </div>
+
+                    <!-- 2. Temperature Section -->
+                    <div class="days-forecast__temps">
+                        <div class="days-forecast__temp-group">
+                            <h4 class="days-forecast__temp-val days-forecast__temp-val--high">33&deg;</h4>
+                            <p class="days-forecast__temp-label">High</p>
+                        </div>
+
+                        <div class="days-forecast__separator"></div>
+
+                        <div class="days-forecast__temp-group">
+                            <h4 class="days-forecast__temp-val days-forecast__temp-val--low">17&deg;</h4>
+                            <p class="days-forecast__temp-label">Low</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. Stats / Metrics Section -->
+                    <div class="days-forecast__stats">
+                        <div class="days-forecast__stat-item">
+                            <img class="generic-icons generic-icons__day-forecast--stat"
+                                src="./Assets/Icons/generic icons/humidity.svg" alt="humidity-icon">
+                            <p class="days-forecast__stat-val days-forecast__stat-rain">8%</p>
+                        </div>
+
+                        <div class="days-forecast__stat-item">
+                            <img class="generic-icons generic-icons__day-forecast--stat"
+                                src="./Assets/Icons/generic icons/wind.svg" alt="wind-icon">
+                            <p class="days-forecast__stat-val days-forecast__stat-wind">22km/h</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="days-forecast__box">
+
+                    <!-- 1. Meta / Info Section -->
+                    <div class="days-forecast__meta">
+                        <p class="days-forecast__day">Sun</p>
+                        <p class="days-forecast__date">16 July</p>
+                        <img class="weather-icons weather-icons__day-forecast" src="" alt="day-weather-icon">
+                        <p class="days-forecast__status">Mostly Sunny</p>
+                    </div>
+
+                    <!-- 2. Temperature Section -->
+                    <div class="days-forecast__temps">
+                        <div class="days-forecast__temp-group">
+                            <h4 class="days-forecast__temp-val days-forecast__temp-val--high">36&deg;</h4>
+                            <p class="days-forecast__temp-label">High</p>
+                        </div>
+
+                        <div class="days-forecast__separator"></div>
+
+                        <div class="days-forecast__temp-group">
+                            <h4 class="days-forecast__temp-val days-forecast__temp-val--low">20&deg;</h4>
+                            <p class="days-forecast__temp-label">Low</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. Stats / Metrics Section -->
+                    <div class="days-forecast__stats">
+                        <div class="days-forecast__stat-item">
+                            <img class="generic-icons generic-icons__day-forecast--stat"
+                                src="./Assets/Icons/generic icons/humidity.svg" alt="humidity-icon">
+                            <p class="days-forecast__stat-val days-forecast__stat-rain">11%</p>
+                        </div>
+
+                        <div class="days-forecast__stat-item">
+                            <img class="generic-icons generic-icons__day-forecast--stat"
+                                src="./Assets/Icons/generic icons/wind.svg" alt="wind-icon">
+                            <p class="days-forecast__stat-val days-forecast__stat-wind">25km/h</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="days-forecast__box">
+
+                    <!-- 1. Meta / Info Section -->
+                    <div class="days-forecast__meta">
+                        <p class="days-forecast__day">Mon</p>
+                        <p class="days-forecast__date">17 July</p>
+                        <img class="weather-icons weather-icons__day-forecast" src="" alt="day-weather-icon">
+                        <p class="days-forecast__status">Mostly Sunny</p>
+                    </div>
+
+                    <!-- 2. Temperature Section -->
+                    <div class="days-forecast__temps">
+                        <div class="days-forecast__temp-group">
+                            <h4 class="days-forecast__temp-val days-forecast__temp-val--high">35&deg;</h4>
+                            <p class="days-forecast__temp-label">High</p>
+                        </div>
+
+                        <div class="days-forecast__separator"></div>
+
+                        <div class="days-forecast__temp-group">
+                            <h4 class="days-forecast__temp-val days-forecast__temp-val--low">18&deg;</h4>
+                            <p class="days-forecast__temp-label">Low</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. Stats / Metrics Section -->
+                    <div class="days-forecast__stats">
+                        <div class="days-forecast__stat-item">
+                            <img class="generic-icons generic-icons__day-forecast--stat"
+                                src="./Assets/Icons/generic icons/humidity.svg" alt="humidity-icon">
+                            <p class="days-forecast__stat-val days-forecast__stat-rain">26%</p>
+                        </div>
+
+                        <div class="days-forecast__stat-item">
+                            <img class="generic-icons generic-icons__day-forecast--stat"
+                                src="./Assets/Icons/generic icons/humidity.svg" alt="wind-icon">
+                            <p class="days-forecast__stat-val days-forecast__stat-wind">22km/h</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- aqi-forecast container -->
+        <div class="aqi-forecast layout-container">
+
+            <div class="aqi-forecast__header layout-header">
+                <div class="layout-heading-group">
+                    <img class="generic-icons generic-icons__layout-header"
+                        src="./Assets/Icons/generic icons/face-mask.svg" alt="face-mask-icon">
+                    <h3 class="layout-heading aqi-forecast__heading">AIR QUALITY</h3>
+                </div>
+                <p class="layout-tagline">Detailed information of Air quality.</p>
+            </div>
+
+            <div class="aqi-forecast__aqi">
+                <span>AQI</span>
+                <span class="aqi-forecast__aqi-value">66</span>
+                <span class="aqi-forecast__overall-status">Moderate</span>
+            </div>
+
+            <table class="aqi-forecast__table">
+                <thead>
+
+                    <tr>
+                        <td class=" aqi-forecast__table-heading">PARAMETER</td>
+                        <td class="aqi-forecast__table-heading">STATUS</td>
+                        <td class="aqi-forecast__table-heading">VALUE</td>
+                        <td class="aqi-forecast__table-heading">UNIT</td>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td class="aqi-forecast__table-parameters">
+                            <div class="aqi-forecast__gas">
+                                <img class="generic-icons generic-icons__aqi-forecast"
+                                    src="./Assets/Icons/generic icons/cloud-fog.svg" alt="cloud-fog-icon">
+                                <h3 class="aqi-forecast__table-parameter-name">PM</h3>
+                                <span><sub>10</sub></span>
+                            </div>
+                            <p>Particulate matter less than or equal to 10 microns</p>
+                        </td>
+
+                        <td>
+                            <h3 class="aqi-forecast__status aqi-forecast__status-PM10">Moderate</h3>
+                        </td>
+
+                        <td class="aqi-forecast__pm10-value">
+                            88.11
+                        </td>
+
+                        <td>
+                            &mu;/m <sup>3</sup>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td class="aqi-forecast__table-parameters">
+                            <div class="aqi-forecast__gas">
+                                <img class="generic-icons generic-icons__aqi-forecast"
+                                    src="./Assets/Icons/generic icons/cloud-fog.svg" alt="cloud-fog-icon">
+                                <h3 class="aqi-forecast__table-parameter-name">PM</h3>
+                                <span><sub>2.5</sub></span>
+                            </div>
+                            <p>Particulate matter less than or equal to 2.5 microns</p>
+                        </td>
+
+                        <td>
+                            <h3 class="aqi-forecast__status aqi-forecast__status-PM25">Moderate</h3>
+                        </td>
+
+                        <td class="aqi-forecast__pm25-value">
+                            65.72
+                        </td>
+
+                        <td>
+                            &mu;/m <sup>3</sup>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td class="aqi-forecast__table-parameters">
+                            <div class="aqi-forecast__gas">
+                                <img class="generic-icons generic-icons__aqi-forecast"
+                                    src="./Assets/Icons/generic icons/wind.svg" alt="wind-icon">
+                                <h3 class="aqi-forecast__table-parameter-name">CO</h3>
+                            </div>
+                            <p>Carbon monoxide</p>
+                        </td>
+
+                        <td>
+                            <h3 class="aqi-forecast__status aqi-forecast__status-CO">Good</h3>
+                        </td>
+
+                        <td class="aqi-forecast__CO-value">
+                            196.67
+                        </td>
+
+                        <td>
+                            &mu;/m <sup>3</sup>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td class="aqi-forecast__table-parameters">
+                            <div class="aqi-forecast__gas">
+                                <img class="generic-icons generic-icons__aqi-forecast"
+                                    src="./Assets/Icons/generic icons/cloud.svg" alt="cloud-icon">
+                                <h3 class="aqi-forecast__table-parameter-name">NO</h3>
+                                <span><sub>2</sub></span>
+                            </div>
+                            <p>Nitrozen Dioxide</p>
+                        </td>
+
+                        <td>
+                            <h3 class="aqi-forecast__status aqi-forecast__status-NO">Good</h3>
+                        </td>
+
+                        <td class="aqi-forecast__NO-value">
+                            4.324
+                        </td>
+
+                        <td>
+                            &mu;/m <sup>3</sup>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td class="aqi-forecast__table-parameters">
+                            <div class="aqi-forecast__gas">
+                                <img class="generic-icons generic-icons__aqi-forecast"
+                                    src="./Assets/Icons/generic icons/cloud.svg" alt="cloud-icon">
+                                <h3 class="aqi-forecast__table-parameter-name">SO</h3>
+                                <span><sub>2</sub></span>
+                            </div>
+                            <p>Sulpher Dioxide</p>
+                        </td>
+
+                        <td>
+                            <h3 class="aqi-forecast__status aqi-forecast__status-SO">Good</h3>
+                        </td>
+
+                        <td class="aqi-forecast__SO-value">
+                            4.324
+                        </td>
+
+                        <td>
+                            &mu;/m <sup>3</sup>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td class="aqi-forecast__table-parameters">
+                            <div class="aqi-forecast__gas">
+                                <img class="generic-icons generic-icons__aqi-forecast"
+                                    src="./Assets/Icons/generic icons/cloud.svg" alt="cloud-icon">
+                                <h3 class="aqi-forecast__table-parameter-name">O</h3> <span><sub>3</sub></span>
+                            </div>
+                            <p>Ozone</p>
+                        </td>
+
+                        <td>
+                            <h3 class="aqi-forecast__status aqi-forecast__status-OZ">Good</h3>
+                        </td>
+
+                        <td class="aqi-forecast__OZ-value">
+                            4.324
+                        </td>
+
+                        <td>
+                            &mu;/m <sup>3</sup>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td class="aqi-forecast__table-parameters">
+                            <div class="aqi-forecast__gas">
+                                <img class="generic-icons generic-icons__aqi-forecast"
+                                    src="./Assets/Icons/generic icons/gauge.svg" alt="gauge-icon">
+                                <h3 class="aqi-forecast__table-parameter-name">Overall Air Quality</h3>
+                            </div>
+                        </td>
+
+                        <td>
+                            <h3 class="aqi-forecast__status aqi-forecast__status-overall">Moderate</h3>
+                        </td>
+
+                        <td class="aqi-forecast__overall-aqi-value">
+                            66
+                        </td>
+
+                        <td>
+                            AQI
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <!-- responsive aqi container for tablets and mobile devices -->
+            <div class="aqi-forecast__mobile">
+
+                <div class="aqi-forecast__mobile-row">
+
+                    <div class="aqi-forecast__mobile-aqi-header">
+                        <img class="generic-icons generic-icons__aqi-forecast"
+                            src="./Assets/Icons/generic icons/gauge.svg" alt="gauge-icon">
+                        <h3 class="aqi-forecast__mobile-aqi-heading">Overall Air Quality</h3>
+                    </div>
+
+                    <div class="aqi-forecast__mobile-aqi">
+                        <span class="aqi-forecast__mobile-aqi-value aqi-forecast__overall-aqi-value--mobile">66</span>
+                        <span class="aqi-forecast__mobile-aqi-status">Moderate</span>
+                    </div>
+
+                </div>
+
+                <div class="aqi-forecast__mobile-row">
+
+                    <div class="aqi-forecast__mobile-row-header">
+
+                        <div class="aqi-forecast__mobile-row-title">
+                            <img class="generic-icons generic-icons__aqi-forecast"
+                                src="./Assets/Icons/generic icons/cloud-fog.svg" alt="cloud-fog-icon">
+                            <span>
+                                <strong>PM <sub>10</sub></strong>
+                            </span>
+                        </div>
+
+                        <p class="aqi-forecast__mobile-row-status aqi-forecast__status-PM10--mobile">Moderate</p>
+
+                    </div>
+
+                    <div class="aqi-forecast__mobile-row-content">
+
+                        <p class="aqi-forecast__mobile-particle-desc">Particulate matter &lt;= 10 microns</p>
+
+                        <div class="aqi-forecast__mobile-reading">
+                            <h2 class="aqi-forecast__mobile-reading-value aqi-forecast__pm10-value--mobile">88.11</h2>
+                            <p class="aqi-forecast__mobile-unit">&micro;g/m<sup>3</sup></p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="aqi-forecast__mobile-row">
+
+                    <div class="aqi-forecast__mobile-row-header">
+                        <div class="aqi-forecast__mobile-row-title">
+                            <img class="generic-icons generic-icons__aqi-forecast"
+                                src="./Assets/Icons/generic icons/cloud-fog.svg" alt="cloud-fog-icon">
+                            <span>
+                                <strong>PM <sub>2.5</sub></strong>
+                            </span>
+                        </div>
+
+                        <p class="aqi-forecast__mobile-row-status aqi-forecast__status-PM25--mobile">Moderate</p>
+
+                    </div>
+
+                    <div class="aqi-forecast__mobile-row-content">
+
+                        <p class="aqi-forecast__mobile-particle-desc">Particulate matter &lt;= 2.5 microns</p>
+
+                        <div class="aqi-forecast__mobile-reading">
+                            <h2 class="aqi-forecast__mobile-reading-value aqi-forecast__pm25-value--mobile">65.72</h2>
+                            <p class="aqi-forecast__mobile-unit">&micro;g/m<sup>3</sup></p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="aqi-forecast__mobile-row">
+
+                    <div class="aqi-forecast__mobile-row-header">
+                        <div class="aqi-forecast__mobile-row-title">
+                            <img class="generic-icons generic-icons__aqi-forecast"
+                                src="./Assets/Icons/generic icons/wind.svg" alt="wind-icon">
+                            <span>
+                                <strong>CO</strong>
+                            </span>
+                        </div>
+
+                        <p class="aqi-forecast__mobile-row-status aqi-forecast__status-CO--mobile">Good</p>
+
+                    </div>
+
+                    <div class="aqi-forecast__mobile-row-content">
+                        <div class="aqi-particle-group">
+                            <p class="aqi-forecast__mobile-particle-desc">Carbon monoxide</p>
+                        </div>
+                        <div class="aqi-forecast__mobile-reading">
+                            <h2 class="aqi-forecast__mobile-reading-value aqi-forecast__CO-value--mobile">196.67</h2>
+                            <p class="aqi-forecast__mobile-unit">&micro;g/m<sup>3</sup></p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="aqi-forecast__mobile-row">
+
+                    <div class="aqi-forecast__mobile-row-header">
+
+                        <div class="aqi-forecast__mobile-row-title">
+                            <img class="generic-icons generic-icons__aqi-forecast"
+                                src="./Assets/Icons/generic icons/cloud.svg" alt="cloud-icon">
+                            <span>
+                                <strong>NO <sub>2</sub></strong>
+                            </span>
+                        </div>
+
+                        <p class="aqi-forecast__mobile-row-status aqi-forecast__status-NO--mobile">Good</p>
+
+                    </div>
+
+                    <div class="aqi-forecast__mobile-row-content">
+
+                        <div class="aqi-particle-group">
+                            <p class="aqi-forecast__mobile-particle-desc">Nitrozen Dioxide</p>
+                        </div>
+                        <div class="aqi-forecast__mobile-reading">
+                            <h2 class="aqi-forecast__mobile-reading-value aqi-forecast__NO-value--mobile">4.324</h2>
+                            <p class="aqi-forecast__mobile-unit">&micro;g/m<sup>3</sup></p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="aqi-forecast__mobile-row">
+
+                    <div class="aqi-forecast__mobile-row-header">
+                        <div class="aqi-forecast__mobile-row-title">
+                            <img class="generic-icons generic-icons__aqi-forecast"
+                                src="./Assets/Icons/generic icons/cloud.svg" alt="cloud-icon">
+                            <span>
+                                <strong>SO <sub>2</sub></strong>
+                            </span>
+                        </div>
+
+                        <p class="aqi-forecast__mobile-row-status aqi-forecast__status-SO--mobile">Good</p>
+
+                    </div>
+
+                    <div class="aqi-forecast__mobile-row-content">
+                        <div class="aqi-particle-group">
+                            <p class="aqi-forecast__mobile-particle-desc">Sulpher Dioxide</p>
+                        </div>
+                        <div class="aqi-forecast__mobile-reading">
+                            <h2 class="aqi-forecast__mobile-reading-value aqi-forecast__SO-value--mobile">196.67</h2>
+                            <p class="aqi-forecast__mobile-unit">&micro;g/m<sup>3</sup></p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="aqi-forecast__mobile-row">
+
+                    <div class="aqi-forecast__mobile-row-header">
+
+                        <div class="aqi-forecast__mobile-row-title">
+                            <img class="generic-icons generic-icons__aqi-forecast"
+                                src="./Assets/Icons/generic icons/cloud.svg" alt="cloud-icon">
+                            <span>
+                                <strong>O <sub>3</sub></strong>
+                            </span>
+                        </div>
+
+                        <p class="aqi-forecast__mobile-row-status aqi-forecast__status-OZ--mobile">Good</p>
+
+                    </div>
+
+                    <div class="aqi-forecast__mobile-row-content">
+
+                        <div class="aqi-particle-group">
+                            <p class="aqi-forecast__mobile-particle-desc">Ozone</p>
+                        </div>
+                        <div class="aqi-forecast__mobile-reading">
+                            <h2 class="aqi-forecast__mobile-reading-value aqi-forecast__OZ-value--mobile">4.324</h2>
+                            <p class="aqi-forecast__mobile-unit">&micro;g/m<sup>3</sup></p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- aqi guide -->
+            <div class="aqi-guide">
+                <h2 class="aqi-guide__heading">AQI CATEGORY GUIDE</h2>
+
+                <div class="aqi-guide__chart">
+
+                    <div class="aqi-guide__box aqi-guide__box--good">
+                        <p class="aqi-guide__number aqi-guide__number--good">0-50</p>
+                        <p class="aqi-guide__status">Good</p>
+                    </div>
+
+                    <div class="aqi-guide__box aqi-guide__box--moderate">
+                        <p class="aqi-guide__number aqi-guide__number--moderate">51-100</p>
+                        <p class="aqi-guide__status">Moderate</p>
+                    </div>
+
+                    <div class="aqi-guide__box aqi-guide__box--sensitive">
+                        <p class="aqi-guide__number aqi-guide__number--sensitive">101-150</p>
+                        <p class="aqi-guide__status">Unhealthy for sensitive groups</p>
+                    </div>
+
+                    <div class="aqi-guide__box aqi-guide__box--unhealthy">
+                        <p class="aqi-guide__number aqi-guide__number--unhealthy">151-200</p>
+                        <p class="aqi-guide__status">Unhealthy</p>
+                    </div>
+
+                    <div class="aqi-guide__box aqi-guide__box--very-unhealthy">
+                        <p class="aqi-guide__number aqi-guide__number--very-unhealthy">201-300</p>
+                        <p class="aqi-guide__status">Very unhealthy</p>
+                    </div>
+
+                    <div class="aqi-guide__box aqi-guide__box--hazardous">
+                        <p class="aqi-guide__number aqi-guide__number--hazardous">301+</p>
+                        <p class="aqi-guide__status">Hazardous</p>
+                    </div>
+
+                </div>
+
+                <p class="aqi-guide__tagline">
+                    Values are approximate and may vary. <br>
+                    Follows US EPA AQI metrics.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- recent searches container -->
+        <div class="recent-search layout-container">
+
+            <div class="recent-search__header layout-header">
+
+                <div class="layout-heading-group">
+                    <img class="generic-icons generic-icons__layout-header"
+                        src="./Assets/Icons/generic icons/restore.svg" alt="restore-icon">
+                    <h3 class="layout-heading recent-search__heading">Recent Searches</h3>
+                </div>
+                <p class="layout-tagline recent-search-tagline">Your recently searched locations.</p>
+
+                <div class="recent-search__actions">
+                    <button class="recent-search__clear-btn" type="button">
+                        Clear All
+                        <img class="generic-icons generic-icons__trash" src="./Assets/Icons/generic icons/trash.svg"
+                            alt="trash-icon">
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="recent-search__container">
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- footer container -->
+    <footer class="footer layout-container">
+
+        <div class="footer__content">
+
+            <div class="footer__box footer__box--intro">
+                <div class="footer__logo logo-group">
+                    <img src="./Assets/Images/Breezely logo.png" alt="Breezely logo" class="breezely-logo">
+                    <span class="breezely-name">Breezely</span>
+                </div>
+
+                <div class="footer__tagline">
+                    <p>Stay ahead of the weather</p>
+                    <p>Stay ahead of the day</p>
+                </div>
+
+                <div class="footer__social">
+                    <a href="https://github.com/Kashish-tech2077" target="_blank">
+                        <img class="generic-icons generic-icons__footer--brand"
+                            src="./Assets/Icons/generic icons/brand-github.svg" alt="github-icon">
+                    </a>
+                    <a href="https://www.linkedin.com/in/kashish-pal-a2b010271/" target="_blank">
+                        <img class="generic-icons generic-icons__footer--brand"
+                            src="./Assets/Icons/generic icons/brand-linkedin.svg" alt="linked-icon">
+                    </a>
+                    <a href="https://x.com/KashishCodes" target="_blank">
+                        <img class="generic-icons generic-icons__footer--brand"
+                            src="./Assets/Icons/generic icons/brand-x.svg" alt="x-icon">
+                    </a>
+                    <a href="https://bsky.app/profile/kashish-me.bsky.social" target="_blank">
+                        <img class="generic-icons generic-icons__footer--brand"
+                            src="./Assets/Icons/generic icons/brand-bluesky.svg" alt="bluesky-icon">
+                    </a>
+                </div>
+
+            </div>
+
+            <span class="footer__separator"></span>
+
+            <div class="footer__box footer__box--link">
+
+                <div class="footer__links-group">
+                    <h3 class="footer__heading">QUICK LINKS</h3>
+                    <a href="https://github.com/Kashish-tech2077" target="_blank" class="footer__link">GitHub</a>
+                    <a href="https://www.linkedin.com/in/kashish-pal-a2b010271/" target="_blank"
+                        class="footer__link">LinkedIn</a>
+                    <a href="https://x.com/KashishCodes" target="_blank" class="footer__link">Twitter</a>
+                    <a href="https://bsky.app/profile/kashish-me.bsky.social" target="_blank"
+                        class="footer__link">Bluesky</a>
+                </div>
+
+                <!-- <span class="footer-separator"></span> -->
+
+                <div class="footer__links-group">
+                    <h3 class="footer__heading">RESOURCES</h3>
+                    <a href="https://open-meteo.com/en/docs" target="_blank" class="footer__link">Weather Forecast
+                        API</a>
+                    <a href="https://open-meteo.com/en/docs/air-quality-api" target="_blank" class="footer__link">Air
+                        quality API</a>
+                    <a href="https://open-meteo.com/en/docs/geocoding-api" target="_blank"
+                        class="footer__link">Geocoding API</a>
+                </div>
+            </div>
+
+            <span class="footer__separator"></span>
+
+            <div class="footer__box footer__box--about">
+                <h3 class="footer__heading">ABOUT</h3>
+                <p class="footer__about-text">
+                    Breezely is a modern weather app built with JavaScript.
+                </p>
+            </div>
+
+            <span class="footer__separator"></span>
+
+            <div class="footer__box footer__box--theme">
+                <h3 class="footer__heading">THEME</h3>
+
+                <div class="footer__theme">
+                    <select name="app-theme" class="footer__theme-btn">
+                        <option value="auto">Auto (Weather based)</option>
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+
+                <p class="footer__theme-tagline">Theme changes based on current weather</p>
+
+            </div>
+
+        </div>
+
+        <div class="footer__conclusion">
+            <p>&copy; 2026 Breezely, All rights reserved.</p>
+            <p>Powered by Open Meteo API</p>
+            <p>Made with ❤️ by Kashish Pal</p>
+        </div>
+
+    </footer>
+
+
+    <!-- settings section part -->
+    <div id="settings" class="settings model-card">
+
+        <div class="model-card__header">
+            <div class="model-card__header-content">
+                <img class="generic-icons generic-icons__settings generic-icons__settings--header"
+                    src="./Assets/Icons/generic icons/settings.svg" alt="settings-icon">
+
+                <div class="model-card__heading">
+                    <h2 class="model-card__heading-text">Settings</h2>
+                    <p class="model-card__tagline model-card__tagline-settings">
+                        Customize your weather experience
+                    </p>
+                </div>
+            </div>
+
+            <img class="generic-icons generic-icons__close generic-icons__close--settings"
+                src="./Assets/Icons/generic icons/close-icon.svg" alt="close-icon">
+        </div>
+
+
+        <div class="settings__list">
+
+            <!-- Time format -->
+            <div class="settings__item model-box">
+
+                <div class="settings__info">
+                    <img class="generic-icons generic-icons__settings" src="./Assets/Icons/generic icons/clock.svg"
+                        alt="clock-icon">
+
+                    <div class="settings__details">
+                        <h3 class="settings__heading">Time Format</h3>
+                        <p class="settings__tagline">
+                            Choose how time is displayed
+                        </p>
+                    </div>
+                </div>
+
+                <div class="settings__options">
+
+                    <label for="12-hour-radio" class="settings__radio">
+                        <input type="radio" class="settings__input" name="time-format" id="12-hour-radio" value="12">
+                        <span class="settings__radio-control"></span>
+                        <span class="settings__label">12 Hour</span>
+                    </label>
+
+                    <label for="24-hour-radio" class="settings__radio">
+                        <input type="radio" class="settings__input" name="time-format" id="24-hour-radio" value="24">
+                        <span class="settings__radio-control"></span>
+                        <span class="settings__label">24 Hour</span>
+                    </label>
+
+                </div>
+            </div>
+
+
+            <!-- Temperature unit -->
+            <div class="settings__item model-box">
+
+                <div class="settings__info">
+                    <img class="generic-icons generic-icons__settings"
+                        src="./Assets/Icons/generic icons/thermometer.svg" alt="thermometer-icon">
+
+                    <div class="settings__details">
+                        <h3 class="settings__heading">temperature Unit</h3>
+                        <p class="settings__tagline">
+                            Choose your preferred temperature unit
+                        </p>
+                    </div>
+                </div>
+
+                <div class="settings__options">
+
+                    <label for="degree-celcius-radio" class="settings__radio">
+                        <input type="radio" class="settings__input" name="temperature-format" id="degree-celcius-radio"
+                            value="C">
+                        <span class="settings__radio-control"></span>
+                        <span class="settings__label">&deg;C Celcius</span>
+                    </label>
+
+                    <label for="degree-fahrenheit-radio" class="settings__radio">
+                        <input type="radio" class="settings__input" name="temperature-format"
+                            id="degree-fahrenheit-radio" value="F">
+                        <span class="settings__radio-control"></span>
+                        <span class="settings__label">&deg;F Fahrenheit</span>
+                    </label>
+
+                </div>
+            </div>
+
+
+            <!-- Wind speed unit -->
+            <div class="settings__item model-box">
+
+                <div class="settings__info">
+                    <img class="generic-icons generic-icons__settings" src="./Assets/Icons/generic icons/wind.svg"
+                        alt="wind-icon">
+
+                    <div class="settings__details">
+                        <h3 class="settings__heading">Wind Speed Unit</h3>
+                        <p class="settings__tagline">
+                            Choose your preferred wind speed unit
+                        </p>
+                    </div>
+                </div>
+
+                <div class="settings__options">
+
+                    <label for="kmph-speed-radio" class="settings__radio">
+                        <input type="radio" class="settings__input" name="speed-format" id="kmph-speed-radio"
+                            value="kmph">
+                        <span class="settings__radio-control"></span>
+                        <span class="settings__label">km/h</span>
+                    </label>
+
+                    <label for="mph-speed-radio" class="settings__radio">
+                        <input type="radio" class="settings__input" name="speed-format" id="mph-speed-radio"
+                            value="mph">
+                        <span class="settings__radio-control"></span>
+                        <span class="settings__label">mph</span>
+                    </label>
+
+                </div>
+            </div>
+
+
+            <!-- Pressure unit -->
+            <div class="settings__item model-box">
+
+                <div class="settings__info">
+                    <img class="generic-icons generic-icons__settings" src="./Assets/Icons/generic icons/pressure.svg"
+                        alt="pressure-icon">
+
+                    <div class="settings__details">
+                        <h3 class="settings__heading">Pressure Unit</h3>
+                        <p class="settings__tagline">
+                            Choose your preferred pressure unit
+                        </p>
+                    </div>
+                </div>
+
+                <div class="settings__options">
+
+                    <label for="hPa-unit-radio" class="settings__radio">
+                        <input type="radio" class="settings__input" name="pressure-format" id="hPa-unit-radio"
+                            value="hPa">
+                        <span class="settings__radio-control"></span>
+                        <span class="settings__label">hPa</span>
+                    </label>
+
+                    <label for="mmHg-unit-radio" class="settings__radio">
+                        <input type="radio" class="settings__input" name="pressure-format" id="mmHg-unit-radio"
+                            value="mmHg">
+                        <span class="settings__radio-control"></span>
+                        <span class="settings__label">mmHg</span>
+                    </label>
+
+                </div>
+            </div>
+
+
+            <!-- Theme -->
+            <div class="settings__item model-box">
+
+                <div class="settings__info">
+                    <img class="generic-icons generic-icons__settings" src="./Assets/Icons/generic icons/theme.svg"
+                        alt="theme-icon">
+
+                    <div class="settings__details">
+                        <h3 class="settings__heading">Theme</h3>
+                        <p class="settings__tagline">
+                            Choose your preferred theme
+                        </p>
+                    </div>
+                </div>
+
+                <div class="settings__options settings__options--theme">
+
+                    <label for="auto-theme-radio" class="settings__radio settings__radio--theme">
+                        <input type="radio" class="settings__input" name="theme-select" id="auto-theme-radio"
+                            value="auto">
+                        <span class="settings__radio-control"></span>
+                        <span class="settings__label">Auto</span>
+                        <span class="settings__label-description">
+                            Based on weather
+                        </span>
+                    </label>
+
+                    <label for="light-theme-radio" class="settings__radio settings__radio--theme">
+                        <input type="radio" class="settings__input" name="theme-select" id="light-theme-radio"
+                            value="light">
+                        <span class="settings__radio-control"></span>
+                        <span class="settings__label">Light</span>
+                        <span class="settings__label-description">
+                            Always light mode
+                        </span>
+                    </label>
+
+                    <label for="dark-theme-radio" class="settings__radio settings__radio--theme">
+                        <input type="radio" class="settings__input" name="theme-select" id="dark-theme-radio"
+                            value="dark">
+                        <span class="settings__radio-control"></span>
+                        <span class="settings__label">Dark</span>
+                        <span class="settings__label-description">
+                            Always dark mode
+                        </span>
+                    </label>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="settings__footer">
+
+            <p class="app-version-text settings__version model-info-text">
+                <span>&#9432;</span> Version 1.0.0
+            </p>
+
+            <div>
+                <button type="button" class="settings__close-button">
+                    Close
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- manage-locations section part -->
+    <div id="location" class="manage-locations model-card">
+
+        <div class="model-card__header">
+            <div class="model-card__header-content">
+
+                <img class="generic-icons generic-icons__location generic-icons__location--header"
+                    src="./Assets/Icons/generic icons/manage-location.svg" alt="manage-location-icon">
+
+                <div class="model-card__heading">
+                    <h2 class="model-card__heading-text">Manage Locations</h2>
+
+                    <p class="model-card__tagline model-card__tagline-location">
+                        Add or remove your saved locations
+                    </p>
+                </div>
+
+            </div>
+
+            <img class="generic-icons generic-icons__close generic-icons__close--location"
+                src="./Assets/Icons/generic icons/close-icon.svg" alt="close-icon">
+        </div>
+
+        <div class="manage-locations__content">
+
+            <div class="site-header__search site-header__search--location">
+                <img class="generic-icons generic-icons__search" src="./Assets/Icons/generic icons/search.svg"
+                    alt="search-icon">
+                <input type="text" name="search-bar" class="site-header__search-bar site-header__search-bar--location"
+                    placeholder="Search any city...">
+
+                <button class="search-text-clear-btn" aria-label="Clear search">×</button>
+
+                <!-- Search results -->
+                <div class="site_header__search-result-box site_header__search-result-box--location">
+
+                    <div class="site_header__search-result-row site_header__search-result-row--location" data-index="0">
+
+                        <div class="site_header__search-result-content">
+
+                            <i class="fa-solid fa-location-dot site_header__search-result-icon"></i>
+
+                            <div class="site_header__search-result-location">
+
+                                <span
+                                    class="site_header__search-result-city site_header__search-result-city--location"></span>
+
+                                <div class="site_header__search-result-area-part">
+                                    <span
+                                        class="site_header__search-result-state site_header__search-result-state--location"></span><span>,</span>
+                                    <span
+                                        class="site_header__search-result-country site_header__search-result-country--location"></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="site_header__search-result-flag">
+
+                            <i class="fa-regular fa-star site-header__save-icon"></i>
+                            <img class="site_header__search-result-flag-value site_header__search-result-flag-value--location"
+                                src="https://flagsapi.com//flat/32.png" alt="flag-icon">
+
+                        </div>
+
+                    </div>
+
+                    <div class="site_header__search-result-row site_header__search-result-row--location" data-index="0">
+
+                        <div class="site_header__search-result-content">
+
+                            <i class="fa-solid fa-location-dot site_header__search-result-icon"></i>
+
+                            <div class="site_header__search-result-location">
+
+                                <span
+                                    class="site_header__search-result-city site_header__search-result-city--location"></span>
+
+                                <div class="site_header__search-result-area-part">
+                                    <span
+                                        class="site_header__search-result-state site_header__search-result-state--location"></span><span>,</span>
+                                    <span
+                                        class="site_header__search-result-country site_header__search-result-country--location"></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="site_header__search-result-flag">
+
+                            <i class="fa-regular fa-star site-header__save-icon"></i>
+                            <img class="site_header__search-result-flag-value site_header__search-result-flag-value--location"
+                                src="https://flagsapi.com//flat/32.png" alt="flag-icon">
+
+                        </div>
+
+                    </div>
+
+                    <div class="site_header__search-result-row site_header__search-result-row--location" data-index="0">
+
+                        <div class="site_header__search-result-content">
+
+                            <i class="fa-solid fa-location-dot site_header__search-result-icon"></i>
+
+                            <div class="site_header__search-result-location">
+
+                                <span
+                                    class="site_header__search-result-city site_header__search-result-city--location"></span>
+
+                                <div class="site_header__search-result-area-part">
+                                    <span
+                                        class="site_header__search-result-state site_header__search-result-state--location"></span><span>,</span>
+                                    <span
+                                        class="site_header__search-result-country site_header__search-result-country--location"></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="site_header__search-result-flag">
+
+                            <i class="fa-regular fa-star site-header__save-icon"></i>
+                            <img class="site_header__search-result-flag-value site_header__search-result-flag-value--location"
+                                src="https://flagsapi.com//flat/32.png" alt="flag-icon">
+
+                        </div>
+
+                    </div>
+
+                    <div class="site_header__search-result-row site_header__search-result-row--location" data-index="0">
+
+                        <div class="site_header__search-result-content">
+
+                            <i class="fa-solid fa-location-dot site_header__search-result-icon"></i>
+
+                            <div class="site_header__search-result-location">
+
+                                <span
+                                    class="site_header__search-result-city site_header__search-result-city--location"></span>
+
+                                <div class="site_header__search-result-area-part">
+                                    <span
+                                        class="site_header__search-result-state site_header__search-result-state--location"></span><span>,</span>
+                                    <span
+                                        class="site_header__search-result-country site_header__search-result-country--location"></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="site_header__search-result-flag">
+
+                            <i class="fa-regular fa-star site-header__save-icon"></i>
+                            <img class="site_header__search-result-flag-value site_header__search-result-flag-value--location"
+                                src="https://flagsapi.com//flat/32.png" alt="flag-icon">
+
+                        </div>
+
+                    </div>
+
+                    <div class="site_header__search-result-row site_header__search-result-row--location" data-index="0">
+
+                        <div class="site_header__search-result-content">
+
+                            <i class="fa-solid fa-location-dot site_header__search-result-icon"></i>
+
+                            <div class="site_header__search-result-location">
+
+                                <span
+                                    class="site_header__search-result-city site_header__search-result-city--location"></span>
+
+                                <div class="site_header__search-result-area-part">
+                                    <span
+                                        class="site_header__search-result-state site_header__search-result-state--location"></span><span>,</span>
+                                    <span
+                                        class="site_header__search-result-country site_header__search-result-country--location"></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="site_header__search-result-flag">
+
+                            <i class="fa-regular fa-star site-header__save-icon"></i>
+                            <img class="site_header__search-result-flag-value site_header__search-result-flag-value--location"
+                                src="https://flagsapi.com//flat/32.png" alt="flag-icon">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="manage-locations__section">
+
+                <h3 class="manage-locations__section-heading model-header-tagline">
+                    Current Location
+                </h3>
+
+                <div class="manage-locations__item manage-locations__item--current model-box">
+
+                    <div class="manage-locations__place-info">
+
+                        <img class="generic-icons generic-icons__location"
+                            src="./Assets/Icons/generic icons/manage-location.svg" alt="manage-location-icon">
+
+                        <div class="manage-locations__place">
+                            <h3 class="manage-locations__city manage-locations__city--current">London</h3>
+                            <p
+                                class="manage-locations__country manage-locations__country--current model-header-tagline">
+                                United Kingdom
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="manage-locations__temperature">
+
+                        <img class="weather-icons weather-icons__location--current" src=""
+                            alt="current-location-weather-icon">
+
+                        <p class="manage-locations__temperature-value manage-locations__temp-value--current">29&deg;</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="manage-locations__section">
+
+                <h3 class="manage-locations__section-heading model-header-tagline">
+                    Saved Locations
+                </h3>
+
+                <div class="manage-locations__list">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="manage-locations__footer">
+
+            <button type="button" class="manage-locations__clearall-button">
+                <img class="generic-icons generic-icons__trash" src="./Assets/Icons/generic icons/trash.svg"
+                    alt="trash-icon">
+                Clear All Locations
+            </button>
+
+            <p class="manage-locations__info model-info-text">
+                <span>&#9432;</span> Changes are saved automatically
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- confirmation popups -->
+
+    <!-- delete-location-popup -->
+    <div id="delete-save-location-popup" class="confirmation-popup model-card">
+
+        <img class="generic-icons generic-icons__close generic-icons__close--popup"
+            src="./Assets/Icons/generic icons/close-icon.svg" alt="close-icon">
+
+        <div class="confirmation-popup__content">
+
+            <h2 class="confirmation-popup__heading">
+                Delete Location?
+            </h2>
+
+            <p class="confirmation-popup__detail model-header-tagline">
+                Delete location from your saved locations
+            </p>
+
+            <p class="confirmation-popup__warning">
+                This action cannot be undone
+            </p>
+
+        </div>
+
+        <div class="confirmation-popup__actions">
+
+            <button type="button" class="confirmation-popup__button confirmation-popup__button--cancel">
+                <i class="fa-solid fa-x confirmation-popup__icon"></i>
+                Cancel
+            </button>
+
+            <button type="button"
+                class="confirmation-popup__button confirmation-popup__button--delete confirmation-popup__delete-location-btn">
+                <i class="fa-regular fa-trash-can confirmation-popup__icon"></i>
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- clearall-location-popup -->
+    <div id="clearall-saved-locations-popup" class="confirmation-popup model-card">
+
+        <img class="generic-icons generic-icons__close generic-icons__close--popup"
+            src="./Assets/Icons/generic icons/close-icon.svg" alt="close-icon">
+
+        <div class="confirmation-popup__content">
+
+            <h2 class="confirmation-popup__heading">
+                Clear All Saved Locations?
+            </h2>
+
+            <p class="confirmation-popup__detail model-header-tagline">
+                This will remove all saved locations
+            </p>
+
+            <p class="confirmation-popup__warning">
+                This action cannot be undone
+            </p>
+
+        </div>
+
+        <div class="confirmation-popup__actions">
+
+            <button type="button" class="confirmation-popup__button confirmation-popup__button--cancel">
+                <i class="fa-solid fa-x confirmation-popup__icon"></i>
+                Cancel
+            </button>
+
+            <button type="button"
+                class="confirmation-popup__button confirmation-popup__button--delete confirmation-popup__clearall-location-btn">
+                <i class="fa-regular fa-trash-can confirmation-popup__icon"></i>
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- clearall-recentsearch-popup -->
+    <div id="clearall-recentsearch-popup" class="confirmation-popup model-card">
+
+        <img class="generic-icons generic-icons__close generic-icons__close--popup"
+            src="./Assets/Icons/generic icons/close-icon.svg" alt="close-icon">
+
+        <div class="confirmation-popup__content">
+
+            <h2 class="confirmation-popup__heading">
+                Clear All recent searched locations?
+            </h2>
+
+            <p class="confirmation-popup__detail model-header-tagline">
+                This will remove all recent searched locations
+            </p>
+
+            <p class="confirmation-popup__warning">
+                This action cannot be undone
+            </p>
+
+        </div>
+
+        <div class="confirmation-popup__actions">
+
+            <button type="button" class="confirmation-popup__button confirmation-popup__button--cancel">
+                <i class="fa-solid fa-x confirmation-popup__icon"></i>
+                Cancel
+            </button>
+
+            <button type="button"
+                class="confirmation-popup__button confirmation-popup-recent-search-btn--delete confirmation-popup__button--delete">
+                <i class="fa-regular fa-trash-can confirmation-popup__icon"></i>
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="./variables.js"></script>
+    <script src="./foundation.js"></script>
+    <script src="./core.js"></script>
+
+</body>
+
+</html>
