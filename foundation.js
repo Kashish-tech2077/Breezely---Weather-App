@@ -127,9 +127,11 @@ window.addEventListener('scroll', () => {
 
     if (heroBottom <= 0) {
         UIElements.scrollUpBtn.classList.add('show');
+        UIElements.feedbackBtn.classList.add('show');
     }
     else {
         UIElements.scrollUpBtn.classList.remove('show');
+        UIElements.feedbackBtn.classList.remove('show');
     }
 
 });

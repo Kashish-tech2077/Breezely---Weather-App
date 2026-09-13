@@ -201,6 +201,9 @@ const UIElements = {
     // scroll up btn
     scrollUpBtn: document.getElementById('scroll-top-btn'),
 
+    // feedback button
+    feedbackBtn: document.querySelector('.feedback-button'),
+
     // header icons and buttons
     hamburgerIcon: document.querySelector('.hamburger-icon'),
     mobileSiteHeaderCloseBtn: document.querySelector('.mobile-site-header__action--closeicon'),
